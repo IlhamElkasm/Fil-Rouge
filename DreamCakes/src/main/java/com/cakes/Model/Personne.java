@@ -20,7 +20,7 @@ public class Personne implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    private String nom;
+    private String username;
     private  String email;
     private String Password;
 
