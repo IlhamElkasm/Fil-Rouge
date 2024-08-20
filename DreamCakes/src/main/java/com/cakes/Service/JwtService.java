@@ -19,7 +19,7 @@ public class JwtService {
 
     private static  final String SECRET_KEY = "E0ll5azxDvxi9pq8hl95AK864DIV2V143m7aVgIzcHbROKTsZMq2U0SZdgnnkFUU\n";
 
-    public String extractUserEmail(String token) {
+    public String extractUserName(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -49,8 +49,8 @@ public class JwtService {
 
 
     public boolean isTokenValid(String token, UserDetails userDetails){
-        final  String email = extractUserEmail(token);
-        return (email.equals(userDetails.getUsername())) && !isTokenExpired(token);
+        final  String username = extractUserName(token);
+        return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
