@@ -7,7 +7,6 @@ import com.cakes.Model.Administrateur;
 import com.cakes.Model.Role;
 import com.cakes.Model.User;
 import com.cakes.Repository.PersonneRepository;
-import com.cakes.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +18,6 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
 
     private final PersonneRepository userdao;
-    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
