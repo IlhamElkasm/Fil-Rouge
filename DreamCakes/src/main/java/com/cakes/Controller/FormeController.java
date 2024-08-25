@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/shapes")
+@RequestMapping("/api/v1/auth/shapes")
 public class FormeController {
+
     @Autowired
     private FormeService formService;
 
@@ -18,10 +19,16 @@ public class FormeController {
         return formService.saveShape(shape);
     }
 
-    @GetMapping("/{id}")
-    public Forme getShapeById(@PathVariable Long id) {
-        return formService.getShapeById(id)
+    @PutMapping("/{id}")
+    public Forme updateShape(@PathVariable Long id, @RequestBody Forme updatedForme) {
+        Forme existingForme = formService.getShapeById(id)
                 .orElseThrow(() -> new RuntimeException("Shape not found"));
+
+        existingForme.setName(updatedForme.getName());
+        existingForme.setDimensions(updatedForme.getDimensions());
+        existingForme.setPrice(updatedForme.getPrice());
+
+        return formService.saveShape(existingForme);
     }
 
     @GetMapping
