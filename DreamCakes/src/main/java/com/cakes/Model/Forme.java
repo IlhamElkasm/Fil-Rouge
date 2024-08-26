@@ -16,6 +16,7 @@ public class Forme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idShape;
+    private String image;
     private String name;
     private String dimensions;
     private double price;
