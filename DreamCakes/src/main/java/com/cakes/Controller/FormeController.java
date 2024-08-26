@@ -3,6 +3,7 @@ package com.cakes.Controller;
 import com.cakes.Model.Forme;
 import com.cakes.Service.FormeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,12 @@ public class FormeController {
     @PostMapping
     public Forme createForme(@RequestBody Forme shape) {
         return formService.saveForme(shape);
+    }
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Forme> getFormById(@PathVariable Long id) {
+        Forme form = formService.getFormeById(id)
+                .orElseThrow(() -> new RuntimeException("Form not found"));
+        return ResponseEntity.ok(form);
     }
 
     @PutMapping("/{id}")
