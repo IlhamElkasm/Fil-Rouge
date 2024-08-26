@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FormeService {
-    Forme saveShape(Forme shape);
-    Optional<Forme> getShapeById(Long id);
-    List<Forme> getAllShapes();
-    void deleteShape(Long id);
+    Forme saveForme(Forme shape);
+    Optional<Forme> getFormeById(Long id);
+    List<Forme> getAllFormes();
+    void deleteForme(Long id);
 }

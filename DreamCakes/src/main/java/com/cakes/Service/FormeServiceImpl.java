@@ -14,19 +14,19 @@ public class FormeServiceImpl implements FormeService {
     @Autowired
     private FormeRepository formeRepository;
 
-    public Forme saveShape(Forme shape) {
+    public Forme saveForme(Forme shape) {
         return formeRepository.save(shape);
     }
 
-    public Optional<Forme> getShapeById(Long id) {
+    public Optional<Forme> getFormeById(Long id) {
         return formeRepository.findById(id);
     }
 
-    public List<Forme> getAllShapes() {
+    public List<Forme> getAllFormes() {
         return formeRepository.findAll();
     }
 
-    public void deleteShape(Long id) {
+    public void deleteForme(Long id) {
         formeRepository.deleteById(id);
     }
 }

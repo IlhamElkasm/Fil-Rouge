@@ -15,29 +15,29 @@ public class FormeController {
     private FormeService formService;
 
     @PostMapping
-    public Forme createShape(@RequestBody Forme shape) {
-        return formService.saveShape(shape);
+    public Forme createForme(@RequestBody Forme shape) {
+        return formService.saveForme(shape);
     }
 
     @PutMapping("/{id}")
-    public Forme updateShape(@PathVariable Long id, @RequestBody Forme updatedForme) {
-        Forme existingForme = formService.getShapeById(id)
+    public Forme updateForme(@PathVariable Long id, @RequestBody Forme updatedForme) {
+        Forme existingForme = formService.getFormeById(id)
                 .orElseThrow(() -> new RuntimeException("Shape not found"));
 
         existingForme.setName(updatedForme.getName());
         existingForme.setDimensions(updatedForme.getDimensions());
         existingForme.setPrice(updatedForme.getPrice());
 
-        return formService.saveShape(existingForme);
+        return formService.saveForme(existingForme);
     }
 
     @GetMapping
-    public List<Forme> getAllShapes() {
-        return formService.getAllShapes();
+    public List<Forme> getAllFormes() {
+        return formService.getAllFormes();
     }
 
     @DeleteMapping("/{id}")
-    public void deleteShape(@PathVariable Long id) {
-        formService.deleteShape(id);
+    public void deleteForme(@PathVariable Long id) {
+        formService.deleteForme(id);
     }
 }
