@@ -1,0 +1,34 @@
+<div class="tabbable">
+    <div class="tab-content">
+        <div class="inside-wrapper container">
+            <div id="owl-posts" class="col-md-14 owl-carousel">
+                <!-- blog post -->
+
+                <div  *ngFor="let forme of formes"  class="col-md-4 p-1 ">
+                    <div class="post-slide box-hover">
+                        <div class="post-img">
+                                <!-- Image -->
+                                <img class="img-responsive" [src]="'assets/form/' + forme.image + '.png'" alt="">
+                            </div>
+                        <!-- post info -->
+                        <div class="post-review">
+                            <h5 class="post-title">{{ forme.name }}</h5>
+                            <ul class="post-bar">
+                                <li>
+                                    <p>{{ forme.price }}$</p>
+                                </li>
+                            </ul>
+                            <p class="post-description">{{ forme.dimensions }}</p>
+                            <!-- button -->
+                            <a class="btn btn-primary btn-md">SELECT</a>
+                        </div>
+                        <!--/post-review -->
+                    </div>
+                    <!--/post-slide -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   

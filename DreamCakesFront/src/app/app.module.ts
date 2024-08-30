@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { MainComponent } from './Components/main/main.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { FormComponent } from './Components/form/form.component';
+import { FormComponent } from './Components/Forms/Showform/form.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormComponent } from './Components/form/form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
