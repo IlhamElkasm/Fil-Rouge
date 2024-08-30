@@ -54,7 +54,7 @@ public class GateauController {
         gateau.setCouleur(color);
 
         // Fetch and set Toppings
-        List<Garniture> toppings = toppingRepository.findAllById(gateauDto.getToppingIds());
+        Garniture toppings = (Garniture) toppingRepository.findAllById(gateauDto.getToppingIds());
         gateau.setGarnitures(toppings);
 
         // Save the Gateau

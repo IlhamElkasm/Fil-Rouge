@@ -17,6 +17,7 @@ public class Saveur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFlavor;
+    private String image;
     private String name;
     private double price;
 

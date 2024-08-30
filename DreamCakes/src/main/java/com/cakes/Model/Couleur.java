@@ -17,7 +17,7 @@ public class Couleur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idColor;
-
+    private String image;
     private String name;
     private String hexCode;
     private double price;

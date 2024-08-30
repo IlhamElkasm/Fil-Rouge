@@ -28,9 +28,8 @@ public class Gateau {
     @ManyToOne
     private  Couleur  couleur;
 
-    @ManyToMany
-    private List<Garniture> garnitures;
+    @ManyToOne
+    private Garniture garnitures;
 
-    // Getters and Setters
 }
 

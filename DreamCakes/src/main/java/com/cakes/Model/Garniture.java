@@ -17,7 +17,7 @@ public class Garniture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTopping;
-
+    private String image;
     private String name;
     private double price;
 }
