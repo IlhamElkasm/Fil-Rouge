@@ -7,7 +7,8 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { MainComponent } from './Components/main/main.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { FormComponent } from './Components/Forms/Showform/form.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ShowsaveurComponent } from './Components/Saveurs/showsaveur/showsaveur.component'
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http'
     MainComponent,
     FooterComponent,
     FormComponent,
+    ShowsaveurComponent,
   ],
   imports: [
     BrowserModule,
