@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/auth/garniture")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class GarnitureController {
 
     @Autowired
