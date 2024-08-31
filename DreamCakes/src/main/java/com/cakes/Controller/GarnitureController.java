@@ -1,38 +1,48 @@
 package com.cakes.Controller;
 
-import com.cakes.Model.Forme;
+import com.cakes.DTO.GarnitureDto;
+import com.cakes.DTO.SaveurDto;
 import com.cakes.Model.Garniture;
-import com.cakes.Service.GarnitureService;
+import com.cakes.Service.IGarnitureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/auth/garniture")
 public class GarnitureController {
 
     @Autowired
-    private GarnitureService garnitureService;
+    private IGarnitureService garnitureService;
 
     @PostMapping
-    public Garniture createGarniture(@RequestBody Garniture garniture) {
-        return garnitureService.saveGarniture(garniture);
+    public GarnitureDto createGarniture(@RequestBody GarnitureDto garnitureDto) {
+        return garnitureService.saveGarniture(garnitureDto);
     }
 
+    // Update a Saveur
     @PutMapping("/{id}")
-    public Garniture updateForme(@PathVariable Long id, @RequestBody Garniture updatedGarniture) {
-        Garniture existingGarniture = garnitureService.getGarnitureById(id)
-                .orElseThrow(() -> new RuntimeException("Shape not found"));
+    public ResponseEntity<GarnitureDto> updateSaveur(@PathVariable("id") Long id, @RequestBody GarnitureDto garnitureDto) {
+        GarnitureDto updatedgarniture = garnitureService.updateGarniture(garnitureDto, id);
+        if (updatedgarniture != null) {
+            return ResponseEntity.ok(updatedgarniture);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-        existingGarniture.setName(updatedGarniture.getName());
-        existingGarniture.setPrice(updatedGarniture.getPrice());
-
-        return garnitureService.saveGarniture(existingGarniture);
+    // Get a Saveur by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<GarnitureDto> getGarnitureById(@PathVariable("id") Long id) {
+        Optional<GarnitureDto> garnitureDto = garnitureService.getGarnitureById(id);
+        return garnitureDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public List<Garniture> getAllFormes() {
+    public List<GarnitureDto> getAllFormes() {
         return garnitureService.getAllGarnitures();
     }
 
