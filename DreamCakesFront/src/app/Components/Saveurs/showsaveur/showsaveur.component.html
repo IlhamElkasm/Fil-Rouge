@@ -1,0 +1,33 @@
+<div class="tabbable">
+    <div class="tab-content">
+        <div class="inside-wrapper container">
+            <div id="owl-posts" class="col-md-14 owl-carousel">
+                <!-- blog post -->
+
+                <div  *ngFor="let saveur of saveurs"  class="col-md-4 p-1 ">
+                    <div class="post-slide box-hover">
+                        <div class="post-img">
+                                <!-- Image -->
+                                <img class="img-responsive" [src]="'assets/saveur/' + saveur.image + '.jpg'" alt="">
+                            </div>
+                        <!-- post info -->
+                        <div class="post-review">
+                            <h5 class="post-title">{{ saveur.name }}</h5>
+                            <ul class="post-bar">
+                                <li>
+                                    <p>{{ saveur.price }}$</p>
+                                </li>
+                            </ul>
+                            <!-- button -->
+                            <a class="btn btn-primary btn-md">SELECT</a>
+                        </div>
+                        <!--/post-review -->
+                    </div>
+                    <!--/post-slide -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   
