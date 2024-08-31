@@ -1,38 +1,47 @@
 package com.cakes.Controller;
 
+import com.cakes.DTO.CouleurDto;
+import com.cakes.DTO.GarnitureDto;
 import com.cakes.Model.Couleur;
-import com.cakes.Service.CouleurService;
+import com.cakes.Service.ICouleurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/auth/couleur")
 public class CouleurController {
 
     @Autowired
-    private CouleurService couleurService;
+    private ICouleurService couleurService;
 
     @PostMapping
-    public Couleur createCouleur(@RequestBody Couleur couleur) {
-        return couleurService.saveCouleur(couleur);
+    public CouleurDto createCouleur(@RequestBody CouleurDto couleurDto) {
+        return couleurService.saveCouleur(couleurDto);
     }
 
     @PutMapping("/{id}")
-    public Couleur updateCouleur(@PathVariable Long id, @RequestBody Couleur updatedCouleur) {
-        Couleur existingCouleur = couleurService.getCouleurById(id)
-                .orElseThrow(() -> new RuntimeException("Shape not found"));
+    public ResponseEntity<CouleurDto> updateCouleur(@PathVariable Long id, @RequestBody CouleurDto updatedCouleur) {
+        CouleurDto updatedcouleur = couleurService.updateCouleur(updatedCouleur, id);
+        if (updatedcouleur != null) {
+            return ResponseEntity.ok(updatedcouleur);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-        existingCouleur.setName(updatedCouleur.getName());
-        existingCouleur.setHexCode(existingCouleur.getHexCode());
-        existingCouleur.setPrice(existingCouleur.getPrice());
-
-        return couleurService.saveCouleur(existingCouleur);
+    @GetMapping("/{id}")
+    public ResponseEntity<CouleurDto> getCouleuById(@PathVariable("id") Long id) {
+        Optional<CouleurDto> couleuDto = couleurService.getCouleurById(id);
+        return couleuDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public List<Couleur> getAllCouleurs() {
+    public List<CouleurDto> getAllCouleurs() {
+
         return couleurService.getAllCouleurs();
     }
 
