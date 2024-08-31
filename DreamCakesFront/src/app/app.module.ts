@@ -9,6 +9,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { FormComponent } from './Components/Forms/Showform/form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowsaveurComponent } from './Components/Saveurs/showsaveur/showsaveur.component';
+import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/showgarniture.component';
 
 
 
@@ -20,6 +21,7 @@ import { ShowsaveurComponent } from './Components/Saveurs/showsaveur/showsaveur.
     FooterComponent,
     FormComponent,
     ShowsaveurComponent,
+    ShowgarnitureComponent,
 
   ],
   imports: [
