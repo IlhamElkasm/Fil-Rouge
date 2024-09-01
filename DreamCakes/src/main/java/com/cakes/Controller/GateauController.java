@@ -25,8 +25,6 @@ public class GateauController {
     @Autowired
     private SaveurRepository flavorRepository;
 
-    @Autowired
-    private CouleurRepository colorRepository;
 
     @Autowired
     private GarnitureRepository toppingRepository;
@@ -47,11 +45,6 @@ public class GateauController {
         Saveur flavor = flavorRepository.findById(gateauDto.getFlavorId())
                 .orElseThrow(() -> new RuntimeException("Flavor not found"));
         gateau.setSaveur(flavor);
-
-        // Fetch and set Color
-        Couleur color = colorRepository.findById(gateauDto.getColorId())
-                .orElseThrow(() -> new RuntimeException("Color not found"));
-        gateau.setCouleur(color);
 
         // Fetch and set Toppings
         Garniture toppings = (Garniture) toppingRepository.findAllById(gateauDto.getToppingIds());
