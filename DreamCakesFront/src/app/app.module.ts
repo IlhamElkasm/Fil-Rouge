@@ -23,6 +23,7 @@ import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/sho
     ShowsaveurComponent,
     ShowgarnitureComponent,
 
+
   ],
   imports: [
     BrowserModule,

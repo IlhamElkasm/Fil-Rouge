@@ -26,9 +26,6 @@ public class Gateau {
     private Saveur saveur;
 
     @ManyToOne
-    private  Couleur  couleur;
-
-    @ManyToOne
     private Garniture garnitures;
 
 }
