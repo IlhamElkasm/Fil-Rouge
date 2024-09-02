@@ -1,6 +1,7 @@
 package com.cakes.Service;
 
 import com.cakes.DTO.SaveurDto;
+import com.cakes.Mapper.SaveurMapper;
 import com.cakes.Model.Saveur;
 import com.cakes.Repository.SaveurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,52 +14,31 @@ import java.util.stream.Collectors;
 @Service
 public class SaveurService implements ISaveurService {
 
+
     @Autowired
     private SaveurRepository saveurRepository;
 
+    @Autowired
+    private SaveurMapper saveurMapper;
+
     @Override
     public SaveurDto saveSaveur(SaveurDto saveurDto) {
-        Saveur saveur = new Saveur();
-        saveur.setIdFlavor(saveurDto.getIdFlavor());
-        saveur.setImage(saveurDto.getImage());
-        saveur.setName(saveurDto.getName());
-        saveur.setPrice(saveurDto.getPrice());
+        // Use the mapper to convert DTO to Entity
+        Saveur saveur = saveurMapper.toEntity(saveurDto);
         Saveur savedSaveur = saveurRepository.save(saveur);
-
-        SaveurDto savedSaveurDto = new SaveurDto();
-        savedSaveurDto.setIdFlavor(savedSaveur.getIdFlavor());
-        savedSaveurDto.setImage(savedSaveur.getImage());
-        savedSaveurDto.setName(savedSaveur.getName());
-        savedSaveurDto.setPrice(savedSaveur.getPrice());
-        return savedSaveurDto;
+        return saveurMapper.toDTO(savedSaveur);
     }
 
     @Override
     public Optional<SaveurDto> getSaveurById(Long id) {
         Optional<Saveur> saveur = saveurRepository.findById(id);
-        if (saveur.isPresent()) {
-            Saveur saveurEntity = saveur.get();
-            SaveurDto saveurDto = new SaveurDto();
-            saveurDto.setIdFlavor(saveurEntity.getIdFlavor());
-            saveurDto.setImage(saveurEntity.getImage());
-            saveurDto.setName(saveurEntity.getName());
-            saveurDto.setPrice(saveurEntity.getPrice());
-            return Optional.of(saveurDto);
-        }
-        return Optional.empty();
+        return saveur.map(saveurMapper::toDTO);
     }
 
     @Override
     public List<SaveurDto> getAllSaveurs() {
         List<Saveur> saveurs = saveurRepository.findAll();
-        return saveurs.stream().map(saveur -> {
-            SaveurDto dto = new SaveurDto();
-            dto.setIdFlavor(saveur.getIdFlavor());
-            dto.setImage(saveur.getImage());
-            dto.setName(saveur.getName());
-            dto.setPrice(saveur.getPrice());
-            return dto;
-        }).collect(Collectors.toList());
+        return saveurMapper.toDTOList(saveurs);
     }
 
     @Override
@@ -67,17 +47,9 @@ public class SaveurService implements ISaveurService {
 
         if (existingSaveur.isPresent()) {
             Saveur saveur = existingSaveur.get();
-            saveur.setImage(saveurDto.getImage());
-            saveur.setName(saveurDto.getName());
-            saveur.setPrice(saveurDto.getPrice());
+            saveurMapper.toEntity(saveurDto); // Update existing entity with DTO data
             Saveur updatedSaveur = saveurRepository.save(saveur);
-
-            SaveurDto updatedSaveurDto = new SaveurDto();
-            updatedSaveurDto.setIdFlavor(updatedSaveur.getIdFlavor());
-            updatedSaveurDto.setImage(updatedSaveur.getImage());
-            updatedSaveurDto.setName(updatedSaveur.getName());
-            updatedSaveurDto.setPrice(updatedSaveur.getPrice());
-            return updatedSaveurDto;
+            return saveurMapper.toDTO(updatedSaveur);
         }
 
         return null; // or throw an exception if not found
