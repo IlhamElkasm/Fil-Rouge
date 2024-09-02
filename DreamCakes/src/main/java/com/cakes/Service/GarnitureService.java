@@ -1,6 +1,7 @@
 package com.cakes.Service;
 
 import com.cakes.DTO.GarnitureDto;
+import com.cakes.Mapper.GarnitureMapper;
 import com.cakes.Model.Garniture;
 import com.cakes.Repository.GarnitureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,72 +17,37 @@ public class GarnitureService implements IGarnitureService {
     @Autowired
     private GarnitureRepository garnitureRepository;
 
+    @Autowired
+    private GarnitureMapper garnitureMapper;
 
     @Override
     public GarnitureDto saveGarniture(GarnitureDto garnitureDto) {
-        Garniture garniture = new Garniture();
-        garniture.setIdTopping(garnitureDto.getIdTopping());
-        garniture.setName(garnitureDto.getName());
-        garniture.setPrice(garnitureDto.getPrice());
-        garniture.setImage(garnitureDto.getImage());
-        garnitureRepository.save(garniture);
-
-        GarnitureDto savegarnitureDto = new GarnitureDto();
-        savegarnitureDto.setIdTopping(garniture.getIdTopping());
-        savegarnitureDto.setName(garniture.getName());
-        savegarnitureDto.setPrice(garniture.getPrice());
-        savegarnitureDto.setImage(garniture.getImage());
-        return savegarnitureDto;
-
+        // Use the mapper to convert DTO to Entity
+        Garniture garniture = garnitureMapper.toEntity(garnitureDto);
+        Garniture savedGarniture = garnitureRepository.save(garniture);
+        return garnitureMapper.toDTO(savedGarniture);
     }
 
     @Override
     public Optional<GarnitureDto> getGarnitureById(Long id) {
-
-        Garniture Garniture = garnitureRepository.findById(id).orElse(null);
-        if (Garniture != null) {
-            GarnitureDto savegarnitureDto = new GarnitureDto();
-            savegarnitureDto.setIdTopping(Garniture.getIdTopping());
-            savegarnitureDto.setName(Garniture.getName());
-            savegarnitureDto.setPrice(Garniture.getPrice());
-            savegarnitureDto.setImage(Garniture.getImage());
-            return Optional.of(savegarnitureDto);
-        }
-        return Optional.empty();
+        Optional<Garniture> garniture = garnitureRepository.findById(id);
+        return garniture.map(garnitureMapper::toDTO);
     }
 
     @Override
     public List<GarnitureDto> getAllGarnitures() {
         List<Garniture> garnitures = garnitureRepository.findAll();
-
-        return garnitures.stream().map(garniture -> {
-            GarnitureDto garnitureDto = new GarnitureDto();
-            garnitureDto.setIdTopping(garniture.getIdTopping());
-            garnitureDto.setName(garniture.getName());
-            garnitureDto.setPrice(garniture.getPrice());
-            garnitureDto.setImage(garniture.getImage());
-            return garnitureDto;
-        }).collect(Collectors.toList());
+        return garnitureMapper.toDTOList(garnitures);
     }
 
     @Override
     public GarnitureDto updateGarniture(GarnitureDto garnitureDto, Long id) {
-
-        Garniture Garniture  = garnitureRepository.findById(id).orElse(null);
-        if (Garniture != null) {
-           Garniture garnitur = new Garniture();
-           garnitur.setIdTopping(garnitureDto.getIdTopping());
-           garnitur.setName(garnitureDto.getName());
-           garnitur.setPrice(garnitureDto.getPrice());
-           garnitur.setImage(garnitureDto.getImage());
-           garnitureRepository.save(garnitur);
-
-           GarnitureDto savegarnitureDto = new GarnitureDto();
-           savegarnitureDto.setIdTopping(Garniture.getIdTopping());
-           savegarnitureDto.setName(garnitureDto.getName());
-           savegarnitureDto.setPrice(garnitureDto.getPrice());
-           savegarnitureDto.setImage(garnitureDto.getImage());
-           return savegarnitureDto;
+        Optional<Garniture> existingGarniture = garnitureRepository.findById(id);
+        if (existingGarniture.isPresent()) {
+            Garniture garniture = existingGarniture.get();
+            garnitureMapper.toEntity(garnitureDto); // Updating the existing entity with DTO data
+            Garniture updatedGarniture = garnitureRepository.save(garniture);
+            return garnitureMapper.toDTO(updatedGarniture);
         }
         return null;
     }
