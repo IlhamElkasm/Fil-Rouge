@@ -1,6 +1,7 @@
 package com.cakes.Service;
 
 import com.cakes.DTO.FormDto;
+import com.cakes.Mapper.FormMapper;
 import com.cakes.Model.Forme;
 import com.cakes.Repository.FormeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,55 +17,27 @@ public class FormeService implements IFormeService {
     @Autowired
     private FormeRepository formeRepository;
 
+    @Autowired
+    private FormMapper formMapper;
+
     // Save Forme
     public FormDto saveForme(FormDto formDto) {
-        // Direct mapping between DTO and Entity
-        Forme forme = new Forme();
-        forme.setIdShape(formDto.getIdShape());
-        forme.setImage(formDto.getImage());
-        forme.setName(formDto.getName());
-        forme.setDimensions(formDto.getDimensions());
-        forme.setPrice(formDto.getPrice());
-
+        // Use the mapper to convert DTO to Entity
+        Forme forme = formMapper.toEntity(formDto);
         Forme savedForme = formeRepository.save(forme);
-
-        // Set the ID returned by the database
-        formDto.setIdShape(savedForme.getIdShape());
-        return formDto;
+        return formMapper.toDTO(savedForme);
     }
 
     // Get Forme by ID
     public Optional<FormDto> getFormeById(Long id) {
         Optional<Forme> forme = formeRepository.findById(id);
-
-        if (forme.isPresent()) {
-            Forme existingForme = forme.get();
-            // Directly return DTO
-            return Optional.of(new FormDto(
-                    existingForme.getIdShape(),
-                    existingForme.getImage(),
-                    existingForme.getName(),
-                    existingForme.getDimensions(),
-                    existingForme.getPrice()
-            ));
-        }
-
-        return Optional.empty();
+        return forme.map(formMapper::toDTO);
     }
 
     // Get all Formes
     public List<FormDto> getAllFormes() {
         List<Forme> formes = formeRepository.findAll();
-        // Directly map each Forme to FormDto
-        return formes.stream()
-                .map(forme -> new FormDto(
-                        forme.getIdShape(),
-                        forme.getImage(),
-                        forme.getName(),
-                        forme.getDimensions(),
-                        forme.getPrice()
-                ))
-                .toList();
+        return formMapper.toDTOList(formes);
     }
 
     // Delete Forme
@@ -77,14 +50,10 @@ public class FormeService implements IFormeService {
         Optional<Forme> existingForme = formeRepository.findById(id);
         if (existingForme.isPresent()) {
             Forme forme = existingForme.get();
-            forme.setImage(formDto.getImage());
-            forme.setName(formDto.getName());
-            forme.setDimensions(formDto.getDimensions());
-            forme.setPrice(formDto.getPrice());
-
+            // Use the mapper to update the entity with the new data from the DTO
+            formMapper.toEntity(formDto);
             Forme updatedForme = formeRepository.save(forme);
-            // Directly return updated FormDto
-            return Optional.of(formDto);
+            return Optional.of(formMapper.toDTO(updatedForme));
         }
         return Optional.empty();
     }
