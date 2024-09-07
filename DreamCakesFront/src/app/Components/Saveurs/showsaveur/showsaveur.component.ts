@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SaveurDto } from 'src/app/Model/Saveur';
 import { SaveurService } from 'src/app/Service/saveur.service';
 
@@ -8,6 +8,16 @@ import { SaveurService } from 'src/app/Service/saveur.service';
   styleUrls: ['./showsaveur.component.css']
 })
 export class ShowsaveurComponent implements OnInit {
+
+  @Output() saveurSelected = new EventEmitter<SaveurDto>();
+  gateauDto: any = {}; // Initialize gateauDto here
+
+  // ...rest of the code
+
+  selectSaveur(saveur: SaveurDto): void {
+    this.gateauDto.flavorId = saveur.idFlavor;
+    console.log('Selected Saveur:', saveur.name);
+  }
 
   saveurs: SaveurDto[] = [];
   selectedSaveur: SaveurDto | null = null;

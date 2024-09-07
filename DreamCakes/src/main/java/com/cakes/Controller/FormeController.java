@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth/shapes")
+@RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class FormeController {
 
@@ -19,28 +19,28 @@ public class FormeController {
     private IFormeService formeService;
 
     // Create Forme
-    @PostMapping
+    @PostMapping("/shapes")
     public ResponseEntity<FormDto> createForme(@RequestBody FormDto formDto) {
         FormDto savedForme = formeService.saveForme(formDto);
         return ResponseEntity.ok(savedForme);
     }
 
     // Get Forme by ID
-    @GetMapping("/{id}")
+    @GetMapping("/shapes/{id}")
     public ResponseEntity<FormDto> getFormeById(@PathVariable Long id) {
         Optional<FormDto> forme = formeService.getFormeById(id);
         return forme.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Get all Formes
-    @GetMapping
+    @GetMapping("/User/shapes")
     public ResponseEntity<List<FormDto>> getAllFormes() {
         List<FormDto> formes = formeService.getAllFormes();
         return ResponseEntity.ok(formes);
     }
 
     // Update Forme
-    @PutMapping("/{id}")
+    @PutMapping("/shapes/{id}")
     public ResponseEntity<FormDto> updateForme(@PathVariable Long id, @RequestBody FormDto formDto) {
         Optional<FormDto> updatedForme = formeService.updateForme(id, formDto);
         return updatedForme.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

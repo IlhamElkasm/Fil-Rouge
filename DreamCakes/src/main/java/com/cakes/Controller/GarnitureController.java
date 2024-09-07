@@ -12,20 +12,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth/garniture")
+@RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class GarnitureController {
 
     @Autowired
     private IGarnitureService garnitureService;
 
-    @PostMapping
+    @PostMapping("/garniture")
     public GarnitureDto createGarniture(@RequestBody GarnitureDto garnitureDto) {
         return garnitureService.saveGarniture(garnitureDto);
     }
 
     // Update a Saveur
-    @PutMapping("/{id}")
+    @PutMapping("/garniture/{id}")
     public ResponseEntity<GarnitureDto> updateSaveur(@PathVariable("id") Long id, @RequestBody GarnitureDto garnitureDto) {
         GarnitureDto updatedgarniture = garnitureService.updateGarniture(garnitureDto, id);
         if (updatedgarniture != null) {
@@ -36,18 +36,18 @@ public class GarnitureController {
     }
 
     // Get a Saveur by ID
-    @GetMapping("/{id}")
+    @GetMapping("/garniture/{id}")
     public ResponseEntity<GarnitureDto> getGarnitureById(@PathVariable("id") Long id) {
         Optional<GarnitureDto> garnitureDto = garnitureService.getGarnitureById(id);
         return garnitureDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
+    @GetMapping("/User/garniture")
     public List<GarnitureDto> getAllFormes() {
         return garnitureService.getAllGarnitures();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/garniture/{id}")
     public void deleteForme(@PathVariable Long id) {
         garnitureService.deleteGarniture(id);
     }

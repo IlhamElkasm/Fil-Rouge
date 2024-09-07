@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GarnitureDto } from 'src/app/Model/Garniture';
 import { GarnitureService } from 'src/app/Service/garniture.service';
 
@@ -9,8 +9,18 @@ import { GarnitureService } from 'src/app/Service/garniture.service';
 })
 export class ShowgarnitureComponent  implements OnInit {
   
-  garnitures: GarnitureDto[] = [];
+  @Output() garnituresSelected = new EventEmitter<GarnitureDto>();
 
+  garnitures: GarnitureDto[] = []; // Assume this array is populated elsewhere
+    gateauDto: any = {}; // Initialize gateauDto here
+  
+    // ...rest of the code
+  
+    selectGarniture(garniture: GarnitureDto): void {
+      this.gateauDto.toppingId = garniture.idTopping;
+      console.log('Selected Garniture:', garniture.name);
+    }
+  
   constructor(private garnitureService: GarnitureService) {}
 
   ngOnInit(): void {

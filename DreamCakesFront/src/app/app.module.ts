@@ -10,6 +10,11 @@ import { FormComponent } from './Components/Forms/Showform/form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowsaveurComponent } from './Components/Saveurs/showsaveur/showsaveur.component';
 import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/showgarniture.component';
+import { CreategateauComponent } from './Components/Gateau/creategateau/creategateau.component';
+import { LoginComponent } from './Components/Authentication/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './Components/Authentication/dashboard/dashboard.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +27,9 @@ import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/sho
     FormComponent,
     ShowsaveurComponent,
     ShowgarnitureComponent,
+    CreategateauComponent,
+    LoginComponent,
+    DashboardComponent,
 
 
   ],
@@ -29,6 +37,8 @@ import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/sho
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

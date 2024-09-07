@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormDto } from 'src/app/Model/Form';
 import { FormService } from 'src/app/Service/form.service';
 
@@ -7,8 +7,17 @@ import { FormService } from 'src/app/Service/form.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent  implements OnInit {
-  formes: FormDto[] = [];
+export class FormComponent implements OnInit {
+
+  @Output() formSelected = new EventEmitter<FormDto>();
+
+  formes: FormDto[] = []; // Assume this array is populated elsewhere
+  gateauDto: any = {}; // Initialize as an empty object
+
+  selectForm(forme: FormDto): void {
+    this.gateauDto.idShape = forme.idShape;
+    console.log('Selected Form:', forme.name);
+  }
 
   constructor(private formeService: FormService) { }
 

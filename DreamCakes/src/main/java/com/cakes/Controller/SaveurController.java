@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth/saveur")
+@RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class SaveurController {
 
@@ -20,28 +20,28 @@ public class SaveurController {
     private ISaveurService saveurService;
 
     // Create a new Saveur
-    @PostMapping
+    @PostMapping("/saveur")
     public ResponseEntity<SaveurDto> createSaveur(@RequestBody SaveurDto saveurDto) {
         SaveurDto savedSaveur = saveurService.saveSaveur(saveurDto);
         return new ResponseEntity<>(savedSaveur, HttpStatus.CREATED);
     }
 
     // Get a Saveur by ID
-    @GetMapping("/{id}")
+    @GetMapping("/saveur/{id}")
     public ResponseEntity<SaveurDto> getSaveurById(@PathVariable("id") Long id) {
         Optional<SaveurDto> saveurDto = saveurService.getSaveurById(id);
         return saveurDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Get all Saveurs
-    @GetMapping
+    @GetMapping("/User/saveur")
     public ResponseEntity<List<SaveurDto>> getAllSaveurs() {
         List<SaveurDto> saveurDtos = saveurService.getAllSaveurs();
         return ResponseEntity.ok(saveurDtos);
     }
 
     // Update a Saveur
-    @PutMapping("/{id}")
+    @PutMapping("/saveur/{id}")
     public ResponseEntity<SaveurDto> updateSaveur(@PathVariable("id") Long id, @RequestBody SaveurDto saveurDto) {
         SaveurDto updatedSaveur = saveurService.updateSaveur(id, saveurDto);
         if (updatedSaveur != null) {
@@ -52,7 +52,7 @@ public class SaveurController {
     }
 
     // Delete a Saveur
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/saveur/{id}")
     public ResponseEntity<Void> deleteSaveur(@PathVariable("id") Long id) {
         saveurService.deleteSaveur(id);
         return ResponseEntity.noContent().build();
