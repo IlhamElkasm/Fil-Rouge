@@ -9,14 +9,14 @@ import { AuthenticationService } from 'src/app/Service/authentication.service';
 })
 export class LoginComponent {
 
-  email: string = '';
+  username: string = '';
   password: string = '';
   role: string = '';
 
   constructor(private authService: AuthenticationService, private router: Router) {}
 
   onLogin() {
-    this.authService.login(this.email, this.password).subscribe(
+    this.authService.login(this.username, this.password).subscribe(
         (response) => {
             localStorage.setItem('jwt', response.token);
             localStorage.setItem('role', response.role);  // Store role

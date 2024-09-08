@@ -18,13 +18,9 @@ export class AuthenticationService {
     return this.http.post<Jwt>(`${BASE_URL}Admin/register`, singRequest, { headers });
 }
 
-registertechnicien(singRequest: any): Observable<Jwt> {
-  const headers = this.createAuthorizationHeader();
-  return this.http.post<Jwt>(`${BASE_URL}Admin/registerTechnicien`, singRequest, { headers });
-}
 
-  login(email: string, password: string): Observable<any> {
-    const loginRequest = { email, password };
+  login(username: string, password: string): Observable<any> {
+    const loginRequest = { username, password };
     return this.http.post<any>(`${BASE_URL}authenticate`, loginRequest);
   }
 

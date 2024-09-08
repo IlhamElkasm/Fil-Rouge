@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SaveurDto } from '../Model/Saveur';
@@ -7,9 +7,18 @@ import { SaveurDto } from '../Model/Saveur';
   providedIn: 'root'
 })
 export class SaveurService {
-  private apiUrl = 'http://localhost:8089/api/v1/auth/saveur'; // Adjust to your API base URL
+  private apiUrl = 'http://localhost:8089/api/v1/auth'; // Adjust to your API base URL
 
   constructor(private http: HttpClient) { }
+
+  private createAuthorizationHeader(): HttpHeaders | undefined {
+    const jwtToken = localStorage.getItem('jwt');
+    if (jwtToken) {
+        return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
+    } else {
+        return undefined;
+    }
+  }
 
   // Create a new Saveur
   createSaveur(saveur: SaveurDto): Observable<SaveurDto> {
@@ -23,7 +32,8 @@ export class SaveurService {
 
   // Get all Saveurs
   getAllSaveurs(): Observable<SaveurDto[]> {
-    return this.http.get<SaveurDto[]>(this.apiUrl);
+    const headers = this.createAuthorizationHeader();
+    return this.http.get<SaveurDto[]>(`${this.apiUrl}/User/saveur` , { headers });
   }
 
   // Update a Saveur

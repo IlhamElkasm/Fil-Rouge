@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormDto } from '../Model/Form';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  private apiUrl = 'http://localhost:8089/api/v1/auth/shapes';
+  private apiUrl = 'http://localhost:8089/api/v1/auth';
 
   constructor(private http: HttpClient) { }
+
+  private createAuthorizationHeader(): HttpHeaders | undefined {
+    const jwtToken = localStorage.getItem('jwt');
+    if (jwtToken) {
+        return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
+    } else {
+        return undefined;
+    }
+  }
 
   // Create Forme
   createForme(formDto: FormDto): Observable<FormDto> {
@@ -23,7 +32,8 @@ export class FormService {
 
   // Get all Formes
   getAllFormes(): Observable<FormDto[]> {
-    return this.http.get<FormDto[]>(this.apiUrl);
+    const headers = this.createAuthorizationHeader();
+    return this.http.get<FormDto[]>(`${this.apiUrl}/User/shapes` , { headers });
   }
 
   // Update Forme

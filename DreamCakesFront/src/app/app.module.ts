@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +9,11 @@ import { FormComponent } from './Components/Forms/Showform/form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowsaveurComponent } from './Components/Saveurs/showsaveur/showsaveur.component';
 import { ShowgarnitureComponent } from './Components/Garniture/showgarniture/showgarniture.component';
-import { CreategateauComponent } from './Components/Gateau/creategateau/creategateau.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
-import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './Components/Authentication/dashboard/dashboard.component'; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -27,9 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormComponent,
     ShowsaveurComponent,
     ShowgarnitureComponent,
-    CreategateauComponent,
     LoginComponent,
     DashboardComponent,
+
 
 
   ],
