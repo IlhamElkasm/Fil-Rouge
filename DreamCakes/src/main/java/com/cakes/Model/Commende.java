@@ -22,6 +22,9 @@ public class Commende {
     @ManyToOne
     private Gateau gateau;
 
+    @ManyToOne
+    private User user;
+
 //    @OneToOne
 //    private Livraison livraison;
 

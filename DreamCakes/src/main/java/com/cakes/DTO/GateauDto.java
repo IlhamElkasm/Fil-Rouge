@@ -15,7 +15,7 @@ public class GateauDto {
     private Long shapeId;
     private Long flavorId;
     private Long colorId;
-    private List<Long> toppingIds;
+    private Long toppingId;
 
     // Getters and Setters
 }

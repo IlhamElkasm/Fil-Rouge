@@ -3,6 +3,7 @@ package com.cakes.Service;
 import com.cakes.DTO.CommendeDto;
 import com.cakes.Model.Commende;
 import com.cakes.Model.Gateau;
+import com.cakes.Model.User;
 import com.cakes.Repository.CommendeRepository;
 import com.cakes.Repository.GateauRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CommendeService implements ICommendeService {
     @Autowired
     private GateauRepository gateauRepository;
 
-    public CommendeDto saveCommende(CommendeDto commendeDto) {
+    public CommendeDto saveCommende(CommendeDto commendeDto, User user) {
         if (commendeDto.getGateauId() == null) {
             throw new IllegalArgumentException("Gateau ID must not be null");
         }
@@ -34,6 +35,7 @@ public class CommendeService implements ICommendeService {
             throw new RuntimeException("Gateau not found");
         }
         commende.setGateau(gateau.get());
+        commende.setUser(user);
 
         Commende savedCommende = commendeRepository.save(commende);
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/auth/User/gateau")
 public class GateauController {
@@ -25,7 +24,6 @@ public class GateauController {
     @Autowired
     private SaveurRepository flavorRepository;
 
-
     @Autowired
     private GarnitureRepository toppingRepository;
 
@@ -33,25 +31,26 @@ public class GateauController {
     public Gateau createGateau(@RequestBody GateauDto gateauDto) {
         Gateau gateau = new Gateau();
 
+        // N7eddu smya w message
         gateau.setNom(gateauDto.getNom());
         gateau.setMessage(gateauDto.getMessage());
 
-        // Fetch and set Shape
+        // N9elbu forme b ID dialha
         Forme shape = shapeRepository.findById(gateauDto.getShapeId())
-                .orElseThrow(() -> new RuntimeException("Shape not found"));
+                .orElseThrow(() -> new RuntimeException("Forme makaynash"));
         gateau.setForme(shape);
 
-        // Fetch and set Flavor
+        // N9elbu saveur b ID dialha
         Saveur flavor = flavorRepository.findById(gateauDto.getFlavorId())
-                .orElseThrow(() -> new RuntimeException("Flavor not found"));
+                .orElseThrow(() -> new RuntimeException("Saveur makaynash"));
         gateau.setSaveur(flavor);
 
-        // Fetch and set Toppings
-        Garniture toppings = (Garniture) toppingRepository.findAllById(gateauDto.getToppingIds());
-        gateau.setGarnitures(toppings);
+        // N9elbu garniture b ID dialha (had l'ID wahd)
+        Garniture topping = toppingRepository.findById(gateauDto.getToppingId())
+                .orElseThrow(() -> new RuntimeException("Garniture makaynash"));
+        gateau.setGarnitures(topping); // L'ID ghadi ykoun wahd
 
-        // Save the Gateau
+        // Nsavgu gateau
         return gateauService.saveGateau(gateau);
     }
 }
-

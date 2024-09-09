@@ -2,9 +2,13 @@ package com.cakes.Controller;
 
 
 import com.cakes.DTO.CommendeDto;
+import com.cakes.Model.User;
+import com.cakes.Repository.UserRepository;
 import com.cakes.Service.CommendeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,11 +20,21 @@ public class CommendeController {
     @Autowired
     private CommendeService commendeService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @PostMapping
-    public ResponseEntity<CommendeDto> createCommende(@RequestBody CommendeDto commendeDto) {
-        CommendeDto savedCommende = commendeService.saveCommende(commendeDto);
-        return ResponseEntity.ok(savedCommende);
+    public ResponseEntity<CommendeDto> createCommende(@RequestBody CommendeDto commendeDto,@AuthenticationPrincipal User user) {
+
+            User utilisateurVerifie = userRepository
+                    .findById(user.getId())
+                    .orElseThrow(()-> new RuntimeException("utilisateur not found"));
+
+            CommendeDto savedCommende = commendeService.saveCommende(commendeDto,user);
+            return ResponseEntity.ok(savedCommende);
+
     }
+
 
     @GetMapping
     public ResponseEntity<List<CommendeDto>> getAllCommendes() {

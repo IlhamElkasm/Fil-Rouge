@@ -18,6 +18,7 @@ public class Gateau {
     private Long idGateau;
     private String nom;
     private String message;
+    private Double prixtotal;
 
     @ManyToOne
     private Forme forme;
