@@ -11,14 +11,6 @@ export class FormService {
 
   constructor(private http: HttpClient) { }
 
-  private createAuthorizationHeader(): HttpHeaders | undefined {
-    const jwtToken = localStorage.getItem('jwt');
-    if (jwtToken) {
-        return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
-    } else {
-        return undefined;
-    }
-  }
 
   // Create Forme
   createForme(formDto: FormDto): Observable<FormDto> {
@@ -32,8 +24,7 @@ export class FormService {
 
   // Get all Formes
   getAllFormes(): Observable<FormDto[]> {
-    const headers = this.createAuthorizationHeader();
-    return this.http.get<FormDto[]>(`${this.apiUrl}/User/shapes` , { headers });
+    return this.http.get<FormDto[]>(`${this.apiUrl}/User/shapes`);
   }
 
   // Update Forme

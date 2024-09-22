@@ -11,14 +11,6 @@ export class GarnitureService {
 
   constructor(private http: HttpClient) {}
 
-  private createAuthorizationHeader(): HttpHeaders | undefined {
-    const jwtToken = localStorage.getItem('jwt');
-    if (jwtToken) {
-        return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
-    } else {
-        return undefined;
-    }
-  }
 
   saveGarniture(garniture: GarnitureDto): Observable<GarnitureDto> {
     return this.http.post<GarnitureDto>(`${this.apiUrl}`, garniture);
@@ -29,8 +21,7 @@ export class GarnitureService {
   }
 
   getAllGarnitures(): Observable<GarnitureDto[]> {
-    const headers = this.createAuthorizationHeader();
-    return this.http.get<GarnitureDto[]>(`${this.apiUrl}/User/garniture` , { headers });
+    return this.http.get<GarnitureDto[]>(`${this.apiUrl}/User/garniture`);
   }
 
   updateGarniture(id: number, garniture: GarnitureDto): Observable<GarnitureDto> {

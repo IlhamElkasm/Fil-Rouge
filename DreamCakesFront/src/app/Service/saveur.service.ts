@@ -11,14 +11,6 @@ export class SaveurService {
 
   constructor(private http: HttpClient) { }
 
-  private createAuthorizationHeader(): HttpHeaders | undefined {
-    const jwtToken = localStorage.getItem('jwt');
-    if (jwtToken) {
-        return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
-    } else {
-        return undefined;
-    }
-  }
 
   // Create a new Saveur
   createSaveur(saveur: SaveurDto): Observable<SaveurDto> {
@@ -32,8 +24,7 @@ export class SaveurService {
 
   // Get all Saveurs
   getAllSaveurs(): Observable<SaveurDto[]> {
-    const headers = this.createAuthorizationHeader();
-    return this.http.get<SaveurDto[]>(`${this.apiUrl}/User/saveur` , { headers });
+    return this.http.get<SaveurDto[]>(`${this.apiUrl}/User/saveur`);
   }
 
   // Update a Saveur
