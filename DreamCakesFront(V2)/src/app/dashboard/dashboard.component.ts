@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,23 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  sidebarOpen = true;
   userRole!: string | null;
   currentPath: string = '';
 
-  // constructor(private authService: Aut, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.userRole = localStorage.getItem("role");
   }
 
-  toggleSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
+  checkPath(): boolean {
+    this.currentPath = this.router.url;
+
+    return this.currentPath === '/dashboard';
   }
-
-  // checkPath(): boolean {
-  //   this.currentPath = this.router.url;
-
-  //   return this.currentPath === '/dashboard';
-  // }
 }
+
