@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'form', loadChildren: () => import('./dashboard/form/form.module').then(m => m.FormModule) },
 
 ];
 
