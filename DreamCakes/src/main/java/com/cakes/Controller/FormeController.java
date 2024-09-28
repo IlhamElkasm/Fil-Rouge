@@ -19,7 +19,7 @@ public class FormeController {
     private IFormeService formeService;
 
     // Create Forme
-    @PostMapping("/shapes")
+    @PostMapping("/Admin/shapes")
     public ResponseEntity<FormDto> createForme(@RequestBody FormDto formDto) {
         FormDto savedForme = formeService.saveForme(formDto);
         return ResponseEntity.ok(savedForme);

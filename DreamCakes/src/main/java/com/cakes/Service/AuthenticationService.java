@@ -40,6 +40,10 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse registerAdmin(RegisterRequest request) {
+        if (request.getPassword() == null || request.getPassword().isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be null or empty");
+        }
+
         var admin = new Administrateur();
         admin.setUsername(request.getUsername());
         admin.setEmail(request.getEmail());
@@ -53,6 +57,7 @@ public class AuthenticationService {
                 .role(admin.getRole().name())  // Include the role in the response
                 .build();
     }
+
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(

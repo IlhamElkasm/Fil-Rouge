@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  filRouge:
+    image: filrouge:latest
+    ports:
+      - '8081:8080'
+    depends_on:
+      - mysqldb
+    networks:
+      - Dreamcakes-network
+
+  mysqldb:
+    image: "mysql:latest"
+    environment:
+      MYSQL_DATABASE: dreamcakes
+      MYSQL_ALLOW_EMPTY_PASSWORD: Ilham@2020
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysqldb:/var/lib/mysql
+    networks:
+      - Dreamcakes-network
+
+
+volumes:
+  mysqldb:
+
+networks:
+  Dreamcakes-network:
+    driver: bridge
