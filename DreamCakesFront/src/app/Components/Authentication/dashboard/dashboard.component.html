@@ -1,6 +1,6 @@
 <div id="wrapper" class="d-flex">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [userRole]="userRole"></app-sidebar>
     <div class="container-fluid"> 
-      <app-main></app-main>
+      <router-outlet></router-outlet>
     </div>
   </div>

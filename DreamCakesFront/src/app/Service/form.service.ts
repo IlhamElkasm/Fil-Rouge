@@ -12,10 +12,12 @@ export class FormService {
   constructor(private http: HttpClient) { }
 
 
-  // Create Forme
-  createForme(formDto: FormDto): Observable<FormDto> {
-    return this.http.post<FormDto>(this.apiUrl, formDto);
+  // Méthode pour créer une forme, acceptant FormData
+  createForme(formData: FormData): Observable<FormDto> {
+    return this.http.post<FormDto>(`${this.apiUrl}/Admin/shapes`, formData);
   }
+
+  
 
   // Get Forme by ID
   getFormeById(id: number): Observable<FormDto> {

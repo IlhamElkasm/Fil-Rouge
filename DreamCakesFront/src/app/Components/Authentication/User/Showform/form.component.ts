@@ -31,12 +31,6 @@ export class FormComponent implements OnInit {
     });
   }
 
-  createForme(formDto: FormDto): void {
-    this.formeService.createForme(formDto).subscribe(newForm => {
-      this.formes.push(newForm);
-    });
-  }
-
   getFormeById(id: number): void {
     this.formeService.getFormeById(id).subscribe(form => {
       console.log(form);

@@ -48,8 +48,11 @@ export class AuthenticationService {
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem(this.TOKEN_KEY);
-    return token != null && !this.jwtHelper.isTokenExpired(token);
-  }
+    const isValid = token != null && !this.jwtHelper.isTokenExpired(token);
+    console.log('Is user authenticated:', isValid);
+    return isValid;
+}
+
 
   getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);
