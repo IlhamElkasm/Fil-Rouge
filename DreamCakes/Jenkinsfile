@@ -4,27 +4,25 @@ pipeline {
         maven 'maven_3_6_3'
     }
     environment {
-       DOCKERHUB_CREDENTIALS = credentials('filRouge'),
-        SONAR_TOKEN = 'squ_e99fc38bde67460695de4fd28c4c86be5f941bf7',
-        SONARQUBE_SERVER= 'http://localhost:9100'
+        DOCKERHUB_CREDENTIALS = credentials('filRouge')
+        SONAR_TOKEN = 'squ_e99fc38bde67460695de4fd28c4c86be5f941bf7'
+        SONARQUBE_SERVER = 'http://localhost:9100'
     }
     stages {
-        stage(' Checkout') {
-              steps {
-                 git branch: 'main', url: 'https://github.com/IlhamElkasm/File-Rouge.git'
-              }
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/IlhamElkasm/File-Rouge.git'
             }
-              stage('Build & Test filRouge') {
-                   steps {
-                           dir('DreamCakes') {
-                                withMaven(maven: 'mvn') {
-                                     bat 'mvn clean install'
-                                }
-                           }
-                   }
-              }
         }
-
+        stage('Build & Test filRouge') {
+            steps {
+                dir('DreamCakes') {
+                    withMaven(maven: 'mvn') {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -35,7 +33,6 @@ pipeline {
                 }
             }
         }
-
         stage('Build Docker Image & Push') {
             steps {
                 dir('DreamCakes') {
@@ -56,11 +53,10 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy with Docker Compose') {
             steps {
                 dir('DreamCakes') {
-                    bat 'docker-compose up '
+                    bat 'docker-compose up'
                 }
             }
         }
