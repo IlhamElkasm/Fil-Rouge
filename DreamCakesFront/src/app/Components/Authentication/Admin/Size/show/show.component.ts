@@ -28,4 +28,14 @@ export class ShowComponent implements OnInit {
       }
     );
   }
+
+
+  onDeleteForme(id: number): void {
+    this.formeService.deleteForme(id).subscribe(() => {
+      console.log(`Forme avec ID ${id} supprimée avec succès.`);
+      // Ajoutez ici le code pour mettre à jour l'interface utilisateur si nécessaire
+    }, error => {
+      console.error('Erreur lors de la suppression de la forme:', error);
+    });
+  }
 }
