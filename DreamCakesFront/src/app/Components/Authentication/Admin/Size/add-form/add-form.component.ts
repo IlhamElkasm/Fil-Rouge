@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormService } from 'src/app/Service/form.service';
 import { UploadImageService } from 'src/app/Service/upload-image.service';
 
@@ -16,7 +17,8 @@ export class AddFormComponent {
   constructor(
     private fb: FormBuilder,
     private formService: FormService,
-    private uploadImageService: UploadImageService
+    private uploadImageService: UploadImageService,
+    private router : Router
   ) {
     // Initialize the form group with all necessary controls
     this.form = this.fb.group({
@@ -39,6 +41,7 @@ export class AddFormComponent {
       this.formService.createForme(formData).subscribe(
         data => {
           console.log('Automobiliste created successfully:', data);
+          this.router.navigateByUrl("/dashboard/show")
         }
       )
 

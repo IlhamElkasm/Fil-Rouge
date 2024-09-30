@@ -1,0 +1,43 @@
+/* Default layout */
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 218px; /* Space for sidebar */
+    margin-top: 30px;
+    width: 80%; /* Take 80% width by default */
+}
+
+#wrapper {
+    display: flex; /* Flex layout by default */
+}
+
+/* For screens below 1010px */
+@media only screen and (max-width: 1030px) {
+    #wrapper {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .container-fluid {
+        margin-left: auto; /* Center content */
+        margin-right: auto;
+        width: 100%; /* Full width */
+        margin-top: 100px; /* Increased margin for top spacing */
+    }
+}
+
+/* For screens below 600px */
+@media only screen and (max-width: 600px) {
+    #wrapper {
+        flex-direction: column; /* Column layout */
+    }
+
+    .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%; /* Full width on small screens */
+        margin-top: 50px; /* Reduced top margin for smaller screens */
+    }
+}

@@ -46,13 +46,19 @@ export class AuthenticationService {
     this.router.navigate(['/login']);
   }
 
+//   logout(): void {
+//     console.log("Before logout:", localStorage.getItem('jwt'), localStorage.getItem('role'));
+//     localStorage.removeItem('role');
+//     localStorage.removeItem('jwt');
+//     console.log("After logout:", localStorage.getItem('jwt'), localStorage.getItem('role'));
+//     this.router.navigate(['/login']);
+// }
+
+
   isAuthenticated(): boolean {
     const token = localStorage.getItem(this.TOKEN_KEY);
-    const isValid = token != null && !this.jwtHelper.isTokenExpired(token);
-    console.log('Is user authenticated:', isValid);
-    return isValid;
-}
-
+    return token != null && !this.jwtHelper.isTokenExpired(token);
+  }
 
   getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);

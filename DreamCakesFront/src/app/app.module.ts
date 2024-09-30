@@ -9,7 +9,7 @@ import { FormComponent } from './Components/Authentication/User/Showform/form.co
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ShowsaveurComponent } from './Components/Authentication/User/showsaveur/showsaveur.component';
 import { ShowgarnitureComponent } from './Components/Authentication/User/showgarniture/showgarniture.component';
-import { LoginComponent } from './Components/Authentication/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './Components/Authentication/dashboard/dashboard.component'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,14 +17,18 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from './Service/authentication.service';
 import { AuthInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
 import { AddFormComponent } from './Components/Authentication/Admin/Size/add-form/add-form.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
-import { AddComponent } from './Components/Authentication/Admin/Size/add/add.component';
+import { ShowComponent } from './Components/Authentication/Admin/Size/show/show.component';
 
+
+//++++++++++++++Angular Materail
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -41,10 +45,7 @@ import { AddComponent } from './Components/Authentication/Admin/Size/add/add.com
     LoginComponent,
     DashboardComponent,
     AddFormComponent,
-    AddComponent,
-
-
-
+    ShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,14 +53,17 @@ import { AddComponent } from './Components/Authentication/Admin/Size/add/add.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatFormFieldModule,
+  //++++++++++++++Angular Materail
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
     MatCardModule,
-    MatSelectModule,
-    MatInputModule,
-    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule
+   
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

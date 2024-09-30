@@ -1,0 +1,25 @@
+/* formes-list.component.css */
+.formes-container {
+    padding: 20px;
+  }
+  table {
+    width: 50%;
+  }
+  
+  .forme-card {
+    margin: 10px;
+  }
+  
+
+  .project-list-container{
+    padding-bottom: 20px;
+
+  }
+/* show.component.css */
+.forme-image {
+    max-width: 100px; /* ou toute autre valeur selon votre préférence */
+    height: auto;
+    border-radius: 4px; /* Pour arrondir les coins si nécessaire */
+  }
+  
+  

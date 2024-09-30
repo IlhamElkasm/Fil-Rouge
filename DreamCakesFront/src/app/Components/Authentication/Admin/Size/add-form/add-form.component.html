@@ -1,31 +1,37 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Name Field -->
+      <div class="form-group">
+          <label for="name"><i class="fas fa-user"></i> Name:</label>
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your name" />
+      </div>
 
+      <!-- Dimensions Field -->
+      <div class="form-group">
+          <label for="dimensions"><i class="fas fa-ruler"></i> Dimensions:</label>
+          <input type="text" id="dimensions" formControlName="dimensions" class="form-control" placeholder="Enter dimensions" />
+      </div>
 
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input id="name" formControlName="name" type="text" class="form-control" />
-  </div>
+      <!-- Price Field -->
+      <div class="form-group">
+          <label for="price"><i class="fas fa-tag"></i> Price:</label>
+          <input type="number" id="price" formControlName="price" class="form-control" placeholder="Enter price" />
+      </div>
 
-  <div class="form-group">
-    <label for="dimensions">Dimensions:</label>
-    <input id="dimensions" formControlName="dimensions" type="text" class="form-control" />
-  </div>
+      <!-- File Upload Field -->
+      <div class="form-group">
+          <label for="image"><i class="fas fa-id-card"></i> Size:</label>
+          <input type="file" id="image" class="form-control" (change)="onFileSelected($event, 'image')" />
+      </div>
 
-  <div class="form-group">
-    <label for="price">Price:</label>
-    <input id="price" formControlName="price" type="number" class="form-control" />
-  </div>
-
-  <label for="image">Carte d'identité nationale</label>
-  <input id="image" type="file" (change)="onFileSelected($event, 'image')" required>
-
-  <div *ngIf="imagePreviewUrl">
-    <h3>Aperçu de l'image :</h3>
-    <img [src]="imagePreviewUrl" alt="Image Preview" style="max-width: 70%; height: auto;">
-  </div>
-
-  <div class="button-group">
-    <button type="submit" [disabled]="form.invalid" class="submit-button">Submit</button>
-    <button type="reset" class="reset-button">Reset</button>
-  </div>
-</form>
+      <!-- Button Group -->
+      <div class="button-group">
+          <button type="submit" [disabled]="form.invalid" class="submit-button">
+              <i class="fas fa-paper-plane"></i> Submit
+          </button>
+          <button type="reset" class="reset-button">
+              <i class="fas fa-undo"></i> Reset
+          </button>
+      </div>
+  </form>
+</div>

@@ -1,114 +1,72 @@
-/* Form Container Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .form-container {
-    max-width: 450px; /* Balanced width for better appearance */
-    margin: 50px auto; /* Center the form horizontally and add top margin */
-    padding: 30px;
-    border: 1px solid #e0e0e0; /* Lighter border for subtle definition */
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: auto; /* Centrer le formulaire */
+    margin-top: 5px;
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
 }
 
-/* Form Group Styling */
 .form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: flex;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333333;
+    margin-bottom: 15px; /* Espacement entre les champs */
 }
 
 .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    width: 100%; /* Prendre toute la largeur */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 4px; /* Coins arrondis */
 }
 
-/* Focus Effect for Input Fields */
-.form-control:focus {
-    border-color: #007bff;
-    outline: none;
+.image-container {
+    text-align: center; /* Centrer le contenu de l'image */
+    margin: 20px 0; /* Espacement au-dessus et au-dessous */
 }
 
-/* Styling for the File Input and Image Preview */
-#nationalIdCardUrl {
-    margin-bottom: 20px;
-}
-
-img {
-    display: block;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better preview distinction */
-}
-
-/* Button Group Styling */
 .button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    display: flex; /* Utiliser Flexbox pour les boutons */
+    justify-content: space-between; /* Espacer les boutons */
 }
 
-/* Submit Button Styling */
+.submit-button, .reset-button {
+    padding: 10px 15px; /* Espacement interne des boutons */
+    border: none; /* Supprimer les bordures par défaut */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de pointeur */
+    font-size: 16px; /* Taille de police */
+}
+
 .submit-button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #EB810A; /* Couleur de fond du bouton de soumission */
+    color: white; /* Couleur du texte */
 }
 
-.submit-button:disabled {
-    background-color: #94d3a2;
-}
-
-.submit-button:hover:not(:disabled) {
-    background-color: #218838;
-}
-
-/* Reset Button Styling */
 .reset-button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #dc3545;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #EB810A; /* Couleur de fond du bouton de réinitialisation */
+    color: black; /* Couleur du texte */
 }
 
-.reset-button:hover {
-    background-color: #c82333;
+.image-container img {
+    max-width: 100%; /* Image responsive */
+    height: auto; /* Hauteur automatique */
 }
 
-/* Optional: Add Responsive Design */
-@media (max-width: 600px) {
+/* Styles pour les écrans plus petits */
+@media (max-width: 768px) {
     .form-container {
-        margin: 20px;
-        padding: 20px;
-    }
-
-    .button-group {
-        flex-direction: column;
+        margin-top: 25%;
+        padding: 10px; /* Réduire l'espacement interne */
     }
 
     .submit-button, .reset-button {
-        width: 100%;
-        margin-top: 10px;
+        flex: 1; /* Les boutons prennent la même largeur */
+        margin: 0 5px; /* Espacement entre les boutons */
     }
 }

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FormService {
-  private apiUrl = 'http://localhost:8089/api/v1/auth';
+  private apiUrl = 'http://localhost:8089/api/v1';
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class FormService {
 
   // Get all Formes
   getAllFormes(): Observable<FormDto[]> {
-    return this.http.get<FormDto[]>(`${this.apiUrl}/User/shapes`);
+    return this.http.get<FormDto[]>(`${this.apiUrl}/show`);
   }
 
   // Update Forme
