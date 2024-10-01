@@ -29,6 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
 
 
 
@@ -46,6 +47,7 @@ import {MatCardModule} from '@angular/material/card';
     DashboardComponent,
     AddFormComponent,
     ShowComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

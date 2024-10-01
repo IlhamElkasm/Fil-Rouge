@@ -71,7 +71,8 @@
 
 
             <div class="bg-light">
-                <section class="inside-page">
+                <div *ngIf="userRole === 'USER'"></div>
+                    <section class="inside-page">
                     <div class="inside-wrapper container">
                         <div class="col-md-12">
                             <div class="content-box container">
@@ -162,164 +163,169 @@
                 </section>
             </div>
 
-            <!-- <app-creategateau></app-creategateau>                    -->
-
-            <!-- /bg-light -->
-            <section class="inside-page">
-                <div class="inside-wrapper container">
-                    <h2 class="text-center-sm">Latest Blog Posts</h2>
-                    <div id="owl-posts" class="col-md-12 owl-carousel">
-                        <!-- blog post -->
-                        <div class="col-md-12 p-1">
-                            <div class="post-slide box-hover">
-                                <div class="post-img">
-                                    <a href="blog-single.html">
-                                        <!-- Image -->
-                                        <img class="img-responsive" src="assets/img/blog/blogprev1.jpg" alt="">
-                                        <!--date -->
-                                        <div class="post-date">
-                                            <span class="date">13</span>
-                                            <span class="month">jan</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- post info -->
-                                <div class="post-review">
-                                    <h5 class="post-title"><a href="blog-single.html">The Best pastries for easter
-                                            time</a></h5>
-                                    <ul class="post-bar">
-                                        <li><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                        <li><i class="fa fa-comment"></i><a href="#">7</a></li>
-                                    </ul>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Ad magni, nesciunt obcaecati possimus...</p>
-                                    <!-- button -->
-                                    <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
-                                </div>
-                                <!--/post-review -->
-                            </div>
-                            <!--/post-slide -->
-                        </div>
-                        <!-- /col-md-12 -->
-                        <!-- blog post -->
-                        <div class="col-md-12 p-1">
-                            <div class="post-slide box-hover">
-                                <div class="post-img">
-                                    <a href="blog-single.html">
-                                        <!-- Image -->
-                                        <img class="img-responsive" src="assets/img/blog/blogprev2.jpg" alt="">
-                                        <!--date -->
-                                        <div class="post-date">
-                                            <span class="date">07</span>
-                                            <span class="month">feb</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- post info -->
-                                <div class="post-review">
-                                    <h5 class="post-title"><a href="blog-single.html">Order our new Red Velvet Cake </a>
-                                    </h5>
-                                    <ul class="post-bar">
-                                        <li><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                        <li><i class="fa fa-comment"></i><a href="#">7</a></li>
-                                    </ul>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Ad magni, nesciunt obcaecati possimus...</p>
-                                    <!-- button -->
-                                    <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
-                                </div>
-                                <!--/post-review -->
-                            </div>
-                            <!--/post-slide -->
-                        </div>
-                        <!-- /col-md-12 -->
-                        <!-- blog post -->
-                        <div class="col-md-12 p-1">
-                            <div class="post-slide box-hover">
-                                <div class="post-img">
-                                    <a href="blog-single.html">
-                                        <!-- Image -->
-                                        <img class="img-responsive" src="assets/img/blog/blogprev3.jpg" alt="">
-                                        <!--date -->
-                                        <div class="post-date">
-                                            <span class="date">13</span>
-                                            <span class="month">feb</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- post info -->
-                                <div class="post-review">
-                                    <h5 class="post-title"><a href="blog-single.html">Order your Valentines day Cake</a>
-                                    </h5>
-                                    <ul class="post-bar">
-                                        <li><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                        <li><i class="fa fa-comment"></i><a href="#">7</a></li>
-                                    </ul>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Ad magni, nesciunt obcaecati possimus...</p>
-                                    <!-- button -->
-                                    <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
-                                </div>
-                                <!--/post-review -->
-                            </div>
-                            <!--/post-slide -->
-                        </div>
-                        <!-- /col-md-12 -->
-                        <!-- blog post -->
-                        <div class="col-md-12 p-1">
-                            <div class="post-slide  box-hover">
-                                <div class="post-img">
-                                    <a href="blog-single.html">
-                                        <!-- Image -->
-                                        <img class="img-responsive" src="assets/img/blog/blogprev4.jpg" alt="">
-                                        <!--date -->
-                                        <div class="post-date">
-                                            <span class="date">22</span>
-                                            <span class="month">feb</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- post info -->
-                                <div class="post-review">
-                                    <h5 class="post-title"><a href="blog-single.html">Gingerbread decoration
-                                            workshop</a></h5>
-                                    <ul class="post-bar">
-                                        <li><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                        <li><i class="fa fa-comment"></i><a href="#">7</a></li>
-                                    </ul>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Ad magni, nesciunt obcaecati possimus...</p>
-                                    <!-- button -->
-                                    <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
-                                </div>
-                                <!--/post-review -->
-                            </div>
-                            <!--/post-slide -->
-                        </div>
-                        <!-- /col-md-12 -->
-                    </div>
-                    <!-- alert box -->
-                    <div class="alert-bg alert alert-info col-md-12 margin1">
-                        <h5>Custom Orders</h5>
-                        <p>Laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor
-                            placerat, nec elementum ipsum convall.
-                        </p>
-                        <p>Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall Maecenas at arcu risus
-                            scelerisque laoree.
-                        </p>
-                        <!-- button -->
-                        <a class="btn btn-secondary" href="contact.html">Contact us</a>
-                    </div>
-                    <!-- /alert -->
-                </div>
-                <!-- /inside-wrapper -->
-            </section>
-            <!-- footer -->
-            <app-footer></app-footer>
-            <!-- / footer-->
+            <div *ngIf="userRole === 'ADMIN'">
+                <button>test</button>
+            </div>
         </div>
-        <!-- / content-box -->
+
+
+        <!-- <app-creategateau></app-creategateau>                    -->
+
+        <!-- /bg-light -->
+        <section class="inside-page">
+            <div class="inside-wrapper container">
+                <h2 class="text-center-sm">Latest Blog Posts</h2>
+                <div id="owl-posts" class="col-md-12 owl-carousel">
+                    <!-- blog post -->
+                    <div class="col-md-12 p-1">
+                        <div class="post-slide box-hover">
+                            <div class="post-img">
+                                <a href="blog-single.html">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="assets/img/blog/blogprev1.jpg" alt="">
+                                    <!--date -->
+                                    <div class="post-date">
+                                        <span class="date">13</span>
+                                        <span class="month">jan</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- post info -->
+                            <div class="post-review">
+                                <h5 class="post-title"><a href="blog-single.html">The Best pastries for easter
+                                        time</a></h5>
+                                <ul class="post-bar">
+                                    <li><i class="fa fa-user"></i><a href="#">admin</a></li>
+                                    <li><i class="fa fa-comment"></i><a href="#">7</a></li>
+                                </ul>
+                                <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Ad magni, nesciunt obcaecati possimus...</p>
+                                <!-- button -->
+                                <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
+                            </div>
+                            <!--/post-review -->
+                        </div>
+                        <!--/post-slide -->
+                    </div>
+                    <!-- /col-md-12 -->
+                    <!-- blog post -->
+                    <div class="col-md-12 p-1">
+                        <div class="post-slide box-hover">
+                            <div class="post-img">
+                                <a href="blog-single.html">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="assets/img/blog/blogprev2.jpg" alt="">
+                                    <!--date -->
+                                    <div class="post-date">
+                                        <span class="date">07</span>
+                                        <span class="month">feb</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- post info -->
+                            <div class="post-review">
+                                <h5 class="post-title"><a href="blog-single.html">Order our new Red Velvet Cake </a>
+                                </h5>
+                                <ul class="post-bar">
+                                    <li><i class="fa fa-user"></i><a href="#">admin</a></li>
+                                    <li><i class="fa fa-comment"></i><a href="#">7</a></li>
+                                </ul>
+                                <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Ad magni, nesciunt obcaecati possimus...</p>
+                                <!-- button -->
+                                <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
+                            </div>
+                            <!--/post-review -->
+                        </div>
+                        <!--/post-slide -->
+                    </div>
+                    <!-- /col-md-12 -->
+                    <!-- blog post -->
+                    <div class="col-md-12 p-1">
+                        <div class="post-slide box-hover">
+                            <div class="post-img">
+                                <a href="blog-single.html">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="assets/img/blog/blogprev3.jpg" alt="">
+                                    <!--date -->
+                                    <div class="post-date">
+                                        <span class="date">13</span>
+                                        <span class="month">feb</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- post info -->
+                            <div class="post-review">
+                                <h5 class="post-title"><a href="blog-single.html">Order your Valentines day Cake</a>
+                                </h5>
+                                <ul class="post-bar">
+                                    <li><i class="fa fa-user"></i><a href="#">admin</a></li>
+                                    <li><i class="fa fa-comment"></i><a href="#">7</a></li>
+                                </ul>
+                                <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Ad magni, nesciunt obcaecati possimus...</p>
+                                <!-- button -->
+                                <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
+                            </div>
+                            <!--/post-review -->
+                        </div>
+                        <!--/post-slide -->
+                    </div>
+                    <!-- /col-md-12 -->
+                    <!-- blog post -->
+                    <div class="col-md-12 p-1">
+                        <div class="post-slide  box-hover">
+                            <div class="post-img">
+                                <a href="blog-single.html">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="assets/img/blog/blogprev4.jpg" alt="">
+                                    <!--date -->
+                                    <div class="post-date">
+                                        <span class="date">22</span>
+                                        <span class="month">feb</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- post info -->
+                            <div class="post-review">
+                                <h5 class="post-title"><a href="blog-single.html">Gingerbread decoration
+                                        workshop</a></h5>
+                                <ul class="post-bar">
+                                    <li><i class="fa fa-user"></i><a href="#">admin</a></li>
+                                    <li><i class="fa fa-comment"></i><a href="#">7</a></li>
+                                </ul>
+                                <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Ad magni, nesciunt obcaecati possimus...</p>
+                                <!-- button -->
+                                <a class="btn btn-primary btn-md" href="blog-single.html">Read More</a>
+                            </div>
+                            <!--/post-review -->
+                        </div>
+                        <!--/post-slide -->
+                    </div>
+                    <!-- /col-md-12 -->
+                </div>
+                <!-- alert box -->
+                <div class="alert-bg alert alert-info col-md-12 margin1">
+                    <h5>Custom Orders</h5>
+                    <p>Laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor
+                        placerat, nec elementum ipsum convall.
+                    </p>
+                    <p>Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall Maecenas at arcu risus
+                        scelerisque laoree.
+                    </p>
+                    <!-- button -->
+                    <a class="btn btn-secondary" href="contact.html">Contact us</a>
+                </div>
+                <!-- /alert -->
+            </div>
+            <!-- /inside-wrapper -->
+        </section>
+        <!-- footer -->
+        <app-footer></app-footer>
+        <!-- / footer-->
     </div>
-    <!-- /content-wrapper -->
+    <!-- / content-box -->
 </div>
+<!-- /content-wrapper -->
 <!-- /content -->

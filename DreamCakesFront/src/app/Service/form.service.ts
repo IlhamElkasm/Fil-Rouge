@@ -17,23 +17,19 @@ export class FormService {
     return this.http.post<FormDto>(`${this.apiUrl}/Admin/shapes`, formData);
   }
 
-  
-
-  // Get Forme by ID
-  getFormeById(id: number): Observable<FormDto> {
-    return this.http.get<FormDto>(`${this.apiUrl}/${id}`);
-  }
-
   // Get all Formes
   getAllFormes(): Observable<FormDto[]> {
     return this.http.get<FormDto[]>(`${this.apiUrl}/show`);
   }
-
-  // Update Forme
-  updateForme(id: number, formDto: FormDto): Observable<FormDto> {
-    return this.http.put<FormDto>(`${this.apiUrl}/${id}`, formDto);
+  // Récupérer une forme par son ID
+  getFormeById(id: number): Observable<FormDto> {
+    return this.http.get<FormDto>(`${this.apiUrl}/get/${id}`);
   }
 
+  // Mettre à jour une forme par son ID
+  updateForme(id: number, forme: FormDto): Observable<FormDto> {
+    return this.http.put<FormDto>(`${this.apiUrl}/update/${id}`, forme);
+  }
   // Delete Forme
   deleteForme(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);

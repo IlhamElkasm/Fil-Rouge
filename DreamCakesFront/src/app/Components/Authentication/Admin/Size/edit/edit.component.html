@@ -1,0 +1,26 @@
+<h2>Edit Forme</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="forme.name" name="name" required>
+  </div>
+
+  <div>
+    <label for="dimensions">Dimensions:</label>
+    <input type="text" id="dimensions" [(ngModel)]="forme.dimensions" name="dimensions" required>
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="forme.price" name="price" required>
+  </div>
+
+  <div>
+    <label for="image">Image:</label>
+    <input type="file" (change)="onFileSelected($event)">
+    <img *ngIf="forme.image" [src]="forme.image" alt="Image de la forme" class="preview-image">
+  </div>
+
+  <button type="submit">Update Forme</button>
+</form>

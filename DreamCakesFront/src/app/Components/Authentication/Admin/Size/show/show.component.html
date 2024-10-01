@@ -39,7 +39,7 @@
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let forme">
         <div class="font-icone-style">
-          <a [routerLink]="['edit', forme.idShape]"><mat-icon aria-hidden="false">edit</mat-icon></a> |
+          <a [routerLink]="['/dashboard/edit', forme.idShape]"><mat-icon aria-hidden="false">edit</mat-icon></a> |
           <a (click)="onDeleteForme(forme.idShape)"><mat-icon aria-hidden="false">delete</mat-icon></a>
         </div>
       </td>

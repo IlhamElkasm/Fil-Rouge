@@ -5,6 +5,7 @@ import { MainComponent } from './Components/main/main.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddFormComponent } from './Components/Authentication/Admin/Size/add-form/add-form.component';
 import { ShowComponent } from './Components/Authentication/Admin/Size/show/show.component';
+import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: '', component: MainComponent },
     { path: 'show', component: ShowComponent},
     {path: 'AddForm', component: AddFormComponent},
+    { path: 'edit/:id', component: EditComponent },
     { path: 'logout', component: LoginComponent },
   ]},
   { path: '**', redirectTo: '/login' },
