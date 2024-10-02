@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddFormComponent } from './Components/Authentication/Admin/Size/add-form/add-form.component';
 import { ShowComponent } from './Components/Authentication/Admin/Size/show/show.component';
 import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
+import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
+import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -13,6 +15,10 @@ const routes: Routes = [
     { path: '', component: MainComponent },
     { path: 'show', component: ShowComponent},
     {path: 'AddForm', component: AddFormComponent},
+    { path: 'edit/:id', component: EditComponent },
+
+    { path: 'All', component: AllSaveurComponent},
+    {path: 'AddSaveur', component: AddSaveurComponent},
     { path: 'edit/:id', component: EditComponent },
     { path: 'logout', component: LoginComponent },
   ]},

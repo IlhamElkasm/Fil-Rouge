@@ -30,6 +30,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
+import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
+import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
 
 
 
@@ -48,6 +50,8 @@ import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.
     AddFormComponent,
     ShowComponent,
     EditComponent,
+    AddSaveurComponent,
+    AllSaveurComponent,
   ],
   imports: [
     BrowserModule,
