@@ -30,6 +30,7 @@ public class SecurityConfig {
 //                                .requestMatchers("/api/v1/auth/**").permitAll()
                                 .requestMatchers("/api/v1/Admin/**").hasAuthority("ADMIN")
                                 .requestMatchers("/api/v1/show", "/get/{id}", "/update/{id}").hasAnyAuthority("ADMIN", "USER")
+                                .requestMatchers("/api/v1/Saveur/all", "/api/v1/Saveur/getS/{id}", "/api/v1/Saveur/edit/{id}").hasAnyAuthority("ADMIN", "USER")
                                 .anyRequest()
                                 .authenticated()
                 )
