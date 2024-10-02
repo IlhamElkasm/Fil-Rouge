@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.saveur-container {
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: auto; /* Centrer le formulaire */
+    margin-top: 5px;
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.saveur-group {
+    margin-bottom: 15px; /* Espacement entre les champs */
+}
+
+.saveur-control {
+    width: 100%; /* Prendre toute la largeur */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+.image-container {
+    text-align: center; /* Centrer le contenu de l'image */
+    margin: 20px 0; /* Espacement au-dessus et au-dessous */
+}
+
+.button-group {
+    display: flex; /* Utiliser Flexbox pour les boutons */
+    justify-content: space-between; /* Espacer les boutons */
+}
+
+.submit-button, .reset-button {
+    padding: 10px 15px; /* Espacement interne des boutons */
+    border: none; /* Supprimer les bordures par défaut */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de pointeur */
+    font-size: 16px; /* Taille de police */
+}
+
+.submit-button {
+    background-color: #EB810A; /* Couleur de fond du bouton de soumission */
+    color: white; /* Couleur du texte */
+}
+
+.reset-button {
+    background-color: #EB810A; /* Couleur de fond du bouton de réinitialisation */
+    color: black; /* Couleur du texte */
+}
+
+.image-container img {
+    max-width: 100%; /* Image responsive */
+    height: auto; /* Hauteur automatique */
+}
+
+/* Styles pour les écrans plus petits */
+@media (max-width: 768px) {
+    .form-container {
+        margin-top: 25%;
+        padding: 10px; /* Réduire l'espacement interne */
+    }
+
+    .submit-button, .reset-button {
+        flex: 1; /* Les boutons prennent la même largeur */
+        margin: 0 5px; /* Espacement entre les boutons */
+    }
+}

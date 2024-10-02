@@ -1,1 +1,32 @@
-<p>add-saveur works!</p>
+<div class="saveur-container">
+    <form [formGroup]="saveur" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="saveur-group">
+            <label for="name"><i class="fas fa-user"></i> Name:</label>
+            <input type="text" id="name" formControlName="name" class="saveur-control" placeholder="Enter your name" />
+        </div>
+
+        <!-- Price Field -->
+        <div class="saveur-group">
+            <label for="price"><i class="fas fa-tag"></i> Price:</label>
+            <input type="number" id="price" formControlName="price" class="saveur-control" placeholder="Enter price" />
+        </div>
+  
+        <!-- File Upload Field -->
+        <div class="saveur-group">
+            <label for="image"><i class="fas fa-id-card"></i> Size:</label>
+            <input type="file" id="image" class="saveur-control" (change)="onFileSelected($event, 'image')" />
+        </div>
+  
+        <!-- Button Group -->
+        <div class="button-group">
+            <button type="submit" [disabled]="saveur.invalid" class="submit-button">
+                <i class="fas fa-paper-plane"></i> Submit
+            </button>
+            <button type="reset" class="reset-button">
+                <i class="fas fa-undo"></i> Reset
+            </button>
+        </div>
+    </form>
+  </div>
+  
