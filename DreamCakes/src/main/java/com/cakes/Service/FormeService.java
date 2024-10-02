@@ -50,11 +50,27 @@ public class FormeService implements IFormeService {
         Optional<Forme> existingForme = formeRepository.findById(id);
         if (existingForme.isPresent()) {
             Forme forme = existingForme.get();
-            // Use the mapper to update the entity with the new data from the DTO
-            formMapper.toEntity(formDto);
+
+            // Manually update the entity with the new data from the DTO
+            forme.setImage(formDto.getImage());
+            forme.setName(formDto.getName());
+            forme.setDimensions(formDto.getDimensions());
+            forme.setPrice(formDto.getPrice());
+
+            // Save the updated entity
             Forme updatedForme = formeRepository.save(forme);
-            return Optional.of(formMapper.toDTO(updatedForme));
+
+            // Manually create a new FormDto from the updated entity
+            FormDto updatedFormDto = new FormDto();
+            updatedFormDto.setIdShape(updatedForme.getIdShape());
+            updatedFormDto.setImage(updatedForme.getImage());
+            updatedFormDto.setName(updatedForme.getName());
+            updatedFormDto.setDimensions(updatedForme.getDimensions());
+            updatedFormDto.setPrice(updatedForme.getPrice());
+
+            return Optional.of(updatedFormDto);
         }
         return Optional.empty();
     }
+
 }

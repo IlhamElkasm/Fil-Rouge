@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class FormeController {
 
@@ -25,22 +25,23 @@ public class FormeController {
         return ResponseEntity.ok(savedForme);
     }
 
-    // Get Forme by ID
-    @GetMapping("/shapes/{id}")
-    public ResponseEntity<FormDto> getFormeById(@PathVariable Long id) {
-        Optional<FormDto> forme = formeService.getFormeById(id);
-        return forme.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     // Get all Formes
-    @GetMapping("/User/shapes")
+    @GetMapping("/show")
     public ResponseEntity<List<FormDto>> getAllFormes() {
         List<FormDto> formes = formeService.getAllFormes();
         return ResponseEntity.ok(formes);
     }
 
+    // Get Forme by ID
+    @GetMapping("/get/{id}")
+    public ResponseEntity<FormDto> getFormeById(@PathVariable Long id) {
+        Optional<FormDto> forme = formeService.getFormeById(id);
+        return forme.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
     // Update Forme
-    @PutMapping("/shapes/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<FormDto> updateForme(@PathVariable Long id, @RequestBody FormDto formDto) {
         Optional<FormDto> updatedForme = formeService.updateForme(id, formDto);
         return updatedForme.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
