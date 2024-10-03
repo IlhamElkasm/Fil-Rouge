@@ -4,6 +4,7 @@
   }
   table {
     width: 50%;
+    margin-left: 50px;
   }
   
   .forme-card {
@@ -13,6 +14,7 @@
 
   .project-list-container{
     padding-bottom: 20px;
+    margin-left: 50px;
 
   }
 /* show.component.css */

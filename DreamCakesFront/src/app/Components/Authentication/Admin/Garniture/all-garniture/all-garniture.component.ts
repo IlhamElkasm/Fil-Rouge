@@ -28,14 +28,16 @@ export class AllGarnitureComponent implements OnInit {
       }
     );
   }
-
-
   onDeleteGarniture(id: number): void {
     this.garnitureService.deleteGarniture(id).subscribe(() => {
-      alert(`Garniture avec ID ${id} supprimée avec succès.`);
-      // Ajoutez ici le code pour mettre à jour l'interface utilisateur si nécessaire
+      alert(`garniture avec ID ${id} supprimée avec succès.`);
+      
+      // Remove the deleted item from the `formes` array to refresh the UI
+      this.garnitures = this.garnitures.filter(garniture => garniture.idTopping !== id);
+      
     }, error => {
-      console.error('Erreur lors de la suppression de la Garniture:', error);
+      console.error('Erreur lors de la suppression de la garniture:', error);
     });
   }
+  
 }

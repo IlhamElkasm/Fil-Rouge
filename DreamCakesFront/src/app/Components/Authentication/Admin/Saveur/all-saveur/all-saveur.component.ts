@@ -28,13 +28,18 @@ export class AllSaveurComponent  implements OnInit{
     )
   }
 
-  DelateSaveur(id : number): void{
+ 
+
+  
+  DelateSaveur(id: number): void {
     this.saveurService.deleteSaveur(id).subscribe(() => {
-      alert(`Saveur avec Id ${id} supprimée avec succès.`);
-    },
-    error =>{
-      console.error('Erreur lors de la suppression de la saveur:', error);
+      alert(`Saveur avec ID ${id} supprimée avec succès.`);
       
+      // Remove the deleted item from the `saveurs` array to refresh the UI
+      this.saveurs = this.saveurs.filter(saveur => saveur.idFlavor !== id);
+      
+    }, error => {
+      console.error('Erreur lors de la suppression de la Saveur:', error);
     });
   }
 

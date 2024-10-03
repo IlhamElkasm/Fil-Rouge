@@ -1,9 +1,11 @@
 /* formes-list.component.css */
 .garniture-container {
     padding: 20px;
+   
   }
   table {
     width: 50%;
+    margin-left: 50px;
   }
   
   .garniture-card {
@@ -13,6 +15,7 @@
 
   .garniture-list-container{
     padding-bottom: 20px;
+    margin-left: 50px;
 
   }
 /* show.component.css */

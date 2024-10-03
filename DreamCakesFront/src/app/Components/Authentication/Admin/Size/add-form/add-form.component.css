@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 
-.garniture-container {
+.form-container {
     max-width: 600px; /* Largeur maximale du formulaire */
     margin: auto; /* Centrer le formulaire */
     margin-top: 5px;
