@@ -33,6 +33,9 @@ import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.
 import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
 import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
 import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/edit-saveur/edit-saveur.component';
+import { AddGarnitureComponent } from './Components/Authentication/Admin/Garniture/add-garniture/add-garniture.component';
+import { AllGarnitureComponent } from './Components/Authentication/Admin/Garniture/all-garniture/all-garniture.component';
+import { EditGarnitureComponent } from './Components/Authentication/Admin/Garniture/edit-garniture/edit-garniture.component';
 
 
 
@@ -54,6 +57,9 @@ import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/ed
     AddSaveurComponent,
     AllSaveurComponent,
     EditSaveurComponent,
+    AddGarnitureComponent,
+    AllGarnitureComponent,
+    EditGarnitureComponent,
   ],
   imports: [
     BrowserModule,

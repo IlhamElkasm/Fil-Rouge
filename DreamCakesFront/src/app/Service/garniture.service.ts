@@ -7,13 +7,13 @@ import { GarnitureDto } from '../Model/Garniture';
   providedIn: 'root'
 })
 export class GarnitureService {
-  private apiUrl = 'http://localhost:8089/api/v1/auth';
+  private apiUrl = 'http://localhost:8089/api/v1/garniture';
 
   constructor(private http: HttpClient) {}
 
 
   saveGarniture(garniture: GarnitureDto): Observable<GarnitureDto> {
-    return this.http.post<GarnitureDto>(`${this.apiUrl}`, garniture);
+    return this.http.post<GarnitureDto>(`${this.apiUrl}/add`, garniture);
   }
 
   getGarnitureById(id: number): Observable<GarnitureDto> {
@@ -21,7 +21,7 @@ export class GarnitureService {
   }
 
   getAllGarnitures(): Observable<GarnitureDto[]> {
-    return this.http.get<GarnitureDto[]>(`${this.apiUrl}/User/garniture`);
+    return this.http.get<GarnitureDto[]>(`${this.apiUrl}/all`);
   }
 
   updateGarniture(id: number, garniture: GarnitureDto): Observable<GarnitureDto> {

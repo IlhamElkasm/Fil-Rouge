@@ -9,18 +9,27 @@ import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.
 import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
 import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
 import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/edit-saveur/edit-saveur.component';
+import { AllGarnitureComponent } from './Components/Authentication/Admin/Garniture/all-garniture/all-garniture.component';
+import { AddGarnitureComponent } from './Components/Authentication/Admin/Garniture/add-garniture/add-garniture.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', component: MainComponent },
+    //Form
     { path: 'show', component: ShowComponent},
     {path: 'AddForm', component: AddFormComponent},
     { path: 'edit/:id', component: EditComponent },
 
+    //Saveur
     { path: 'All', component: AllSaveurComponent},
     {path: 'AddSaveur', component: AddSaveurComponent},
     { path: 'update/:id', component: EditSaveurComponent },
+
+     //Garniture
+     { path: 'AllG', component: AllGarnitureComponent},
+     {path: 'AddGarnitur', component: AddGarnitureComponent},
+     { path: 'update/:id', component: EditSaveurComponent },
     { path: 'logout', component: LoginComponent },
   ]},
   { path: '**', redirectTo: '/login' },
