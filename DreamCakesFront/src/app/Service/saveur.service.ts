@@ -7,6 +7,7 @@ import { SaveurDto } from '../Model/Saveur';
   providedIn: 'root'
 })
 export class SaveurService {
+  
   private apiUrl = 'http://localhost:8089/api/v1/Saveur'; // Adjust to your API base URL
 
   constructor(private http: HttpClient) { }

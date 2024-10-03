@@ -34,7 +34,7 @@
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let saveur">
         <div class="font-icone-style">
-          <a [routerLink]="['/dashboard/edit', saveur.idShidFlavorape]"><mat-icon aria-hidden="false">edit</mat-icon></a> |
+          <a [routerLink]="['/dashboard/update', saveur.idFlavor]"><mat-icon aria-hidden="false">edit</mat-icon></a> |
           <a (click)="DelateSaveur(saveur.idFlavor)"><mat-icon aria-hidden="false">delete</mat-icon></a>
         </div>
       </td>

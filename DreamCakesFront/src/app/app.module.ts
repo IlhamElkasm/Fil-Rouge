@@ -32,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
 import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
 import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
 import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
+import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/edit-saveur/edit-saveur.component';
 
 
 
@@ -52,6 +53,7 @@ import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all
     EditComponent,
     AddSaveurComponent,
     AllSaveurComponent,
+    EditSaveurComponent,
   ],
   imports: [
     BrowserModule,

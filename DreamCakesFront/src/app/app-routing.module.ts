@@ -8,6 +8,7 @@ import { ShowComponent } from './Components/Authentication/Admin/Size/show/show.
 import { EditComponent } from './Components/Authentication/Admin/Size/edit/edit.component';
 import { AddSaveurComponent } from './Components/Authentication/Admin/Saveur/add-saveur/add-saveur.component';
 import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all-saveur/all-saveur.component';
+import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/edit-saveur/edit-saveur.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
 
     { path: 'All', component: AllSaveurComponent},
     {path: 'AddSaveur', component: AddSaveurComponent},
-    { path: 'edit/:id', component: EditComponent },
+    { path: 'update/:id', component: EditSaveurComponent },
     { path: 'logout', component: LoginComponent },
   ]},
   { path: '**', redirectTo: '/login' },
