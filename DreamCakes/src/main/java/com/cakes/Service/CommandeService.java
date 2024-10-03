@@ -1,7 +1,7 @@
 package com.cakes.Service;
 
-import com.cakes.DTO.CommendeDto;
-import com.cakes.Model.Commende;
+import com.cakes.DTO.CommandeDto;
+import com.cakes.Model.Commande;
 import com.cakes.Model.Gateau;
 import com.cakes.Model.User;
 import com.cakes.Repository.CommendeRepository;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 @Service
-public class CommendeService implements ICommendeService {
+public class CommandeService implements ICommandeService {
 
     @Autowired
     private CommendeRepository commendeRepository;
@@ -22,39 +22,39 @@ public class CommendeService implements ICommendeService {
     @Autowired
     private GateauRepository gateauRepository;
 
-    public CommendeDto saveCommende(CommendeDto commendeDto, User user) {
-        if (commendeDto.getGateauId() == null) {
+    public CommandeDto saveCommende(CommandeDto commandeDto, User user) {
+        if (commandeDto.getGateauId() == null) {
             throw new IllegalArgumentException("Gateau ID must not be null");
         }
 
-        Commende commende = new Commende();
-        commende.setDateCommende(LocalDate.now());
+        Commande commande = new Commande();
+        commande.setDateCommende(LocalDate.now());
 
-        Optional<Gateau> gateau = gateauRepository.findById(commendeDto.getGateauId());
+        Optional<Gateau> gateau = gateauRepository.findById(commandeDto.getGateauId());
         if (gateau.isEmpty()) {
             throw new RuntimeException("Gateau not found");
         }
-        commende.setGateau(gateau.get());
-        commende.setUser(user);
+        commande.setGateau(gateau.get());
+        commande.setUser(user);
 
-        Commende savedCommende = commendeRepository.save(commende);
+        Commande savedCommande = commendeRepository.save(commande);
 
-        return convertToDto(savedCommende);
+        return convertToDto(savedCommande);
     }
 
-    public List<CommendeDto> getAllCommendes() {
-        List<Commende> commendes = commendeRepository.findAll();
-        return commendes.stream().map(this::convertToDto).collect(Collectors.toList());
+    public List<CommandeDto> getAllCommendes() {
+        List<Commande> commandes = commendeRepository.findAll();
+        return commandes.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
-    public CommendeDto getCommendeById(Long id) {
+    public CommandeDto getCommendeById(Long id) {
         if (id == null) {
             throw new IllegalArgumentException("ID must not be null");
         }
 
-        Commende commende = commendeRepository.findById(id)
+        Commande commande = commendeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Commende not found"));
-        return convertToDto(commende);
+        return convertToDto(commande);
     }
 
     public void deleteCommendeById(Long id) {
@@ -64,11 +64,11 @@ public class CommendeService implements ICommendeService {
         commendeRepository.deleteById(id);
     }
 
-    private CommendeDto convertToDto(Commende commende) {
-        return new CommendeDto(
-                commende.getIdCommende(),
-                commende.getDateCommende(),
-                commende.getGateau() != null ? commende.getGateau().getIdGateau() : null
+    private CommandeDto convertToDto(Commande commande) {
+        return new CommandeDto(
+                commande.getIdCommende(),
+                commande.getDateCommende(),
+                commande.getGateau() != null ? commande.getGateau().getIdGateau() : null
         );
     }
 }

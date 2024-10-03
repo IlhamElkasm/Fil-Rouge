@@ -1,12 +1,11 @@
 package com.cakes.Controller;
 
 
-import com.cakes.DTO.CommendeDto;
+import com.cakes.DTO.CommandeDto;
 import com.cakes.Model.User;
 import com.cakes.Repository.UserRepository;
-import com.cakes.Service.CommendeService;
+import com.cakes.Service.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -15,42 +14,42 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/auth/User/commende")
-public class CommendeController {
+public class CommandeController {
 
     @Autowired
-    private CommendeService commendeService;
+    private CommandeService commandeService;
 
     @Autowired
     private UserRepository userRepository;
 
     @PostMapping
-    public ResponseEntity<CommendeDto> createCommende(@RequestBody CommendeDto commendeDto,@AuthenticationPrincipal User user) {
+    public ResponseEntity<CommandeDto> createCommende(@RequestBody CommandeDto commandeDto, @AuthenticationPrincipal User user) {
 
             User utilisateurVerifie = userRepository
                     .findById(user.getId())
                     .orElseThrow(()-> new RuntimeException("utilisateur not found"));
 
-            CommendeDto savedCommende = commendeService.saveCommende(commendeDto,user);
+            CommandeDto savedCommende = commandeService.saveCommende(commandeDto,user);
             return ResponseEntity.ok(savedCommende);
 
     }
 
 
     @GetMapping
-    public ResponseEntity<List<CommendeDto>> getAllCommendes() {
-        List<CommendeDto> commendes = commendeService.getAllCommendes();
+    public ResponseEntity<List<CommandeDto>> getAllCommendes() {
+        List<CommandeDto> commendes = commandeService.getAllCommendes();
         return ResponseEntity.ok(commendes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CommendeDto> getCommendeById(@PathVariable Long id) {
-        CommendeDto commendeDto = commendeService.getCommendeById(id);
-        return ResponseEntity.ok(commendeDto);
+    public ResponseEntity<CommandeDto> getCommendeById(@PathVariable Long id) {
+        CommandeDto commandeDto = commandeService.getCommendeById(id);
+        return ResponseEntity.ok(commandeDto);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCommendeById(@PathVariable Long id) {
-        commendeService.deleteCommendeById(id);
+        commandeService.deleteCommendeById(id);
         return ResponseEntity.noContent().build();
     }
 }

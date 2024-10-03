@@ -26,18 +26,18 @@ public class SaveurController {
         return new ResponseEntity<>(savedSaveur, HttpStatus.CREATED);
     }
 
-    // Get a Saveur by ID
-    @GetMapping("/getS/{id}")
-    public ResponseEntity<SaveurDto> getSaveurById(@PathVariable("id") Long id) {
-        Optional<SaveurDto> saveurDto = saveurService.getSaveurById(id);
-        return saveurDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     // Get all Saveurs
     @GetMapping("/all")
     public ResponseEntity<List<SaveurDto>> getAllSaveurs() {
         List<SaveurDto> saveurDtos = saveurService.getAllSaveurs();
         return ResponseEntity.ok(saveurDtos);
+    }
+
+    // Get a Saveur by ID
+    @GetMapping("/get/{id}")
+    public ResponseEntity<SaveurDto> getSaveurById(@PathVariable("id") Long id) {
+        Optional<SaveurDto> saveurDto = saveurService.getSaveurById(id);
+        return saveurDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Update a Saveur

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommendeDto {
+public class CommandeDto {
 
     private Long idCommende;
     private LocalDate dateCommende;

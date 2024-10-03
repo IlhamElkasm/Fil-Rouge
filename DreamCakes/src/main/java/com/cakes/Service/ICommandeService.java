@@ -1,14 +1,14 @@
 package com.cakes.Service;
 
-import com.cakes.DTO.CommendeDto;
+import com.cakes.DTO.CommandeDto;
 import com.cakes.Model.User;
 
 import java.util.List;
 
-public interface ICommendeService {
+public interface ICommandeService {
 
-    CommendeDto saveCommende(CommendeDto commendeDto, User user);
-    List<CommendeDto> getAllCommendes();
-    CommendeDto getCommendeById(Long id);
+    CommandeDto saveCommende(CommandeDto commandeDto, User user);
+    List<CommandeDto> getAllCommendes();
+    CommandeDto getCommendeById(Long id);
     void deleteCommendeById(Long id);
 }

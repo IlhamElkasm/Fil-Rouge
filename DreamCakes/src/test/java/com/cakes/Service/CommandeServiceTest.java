@@ -1,7 +1,7 @@
 package com.cakes.Service;
 
-import com.cakes.DTO.CommendeDto;
-import com.cakes.Model.Commende;
+import com.cakes.DTO.CommandeDto;
+import com.cakes.Model.Commande;
 import com.cakes.Model.Gateau;
 import com.cakes.Model.User;
 import com.cakes.Repository.CommendeRepository;
@@ -12,8 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +19,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 
-class CommendeServiceTest {
+class CommandeServiceTest {
 
 
 
@@ -32,7 +30,7 @@ class CommendeServiceTest {
     private GateauRepository gateauRepository;
 
     @InjectMocks
-    private CommendeService commendeService;
+    private CommandeService commandeService;
 
     @BeforeEach
     void setUp() {
@@ -44,8 +42,8 @@ class CommendeServiceTest {
     void saveCommende() {
 
         // Arrange
-        CommendeDto commendeDto = new CommendeDto();
-        commendeDto.setGateauId(1L);
+        CommandeDto commandeDto = new CommandeDto();
+        commandeDto.setGateauId(1L);
 
         User user = new User();
 
@@ -53,21 +51,21 @@ class CommendeServiceTest {
         gateau.setIdGateau(1L);
 
         when(gateauRepository.findById(1L)).thenReturn(Optional.of(gateau));
-        when(commendeRepository.save(any(Commende.class))).thenAnswer(invocation -> {
-            Commende savedCommende = invocation.getArgument(0);
-            savedCommende.setIdCommende(1L);
-            return savedCommende;
+        when(commendeRepository.save(any(Commande.class))).thenAnswer(invocation -> {
+            Commande savedCommande = invocation.getArgument(0);
+            savedCommande.setIdCommende(1L);
+            return savedCommande;
         });
 
         // Act
-        CommendeDto savedCommendeDto = commendeService.saveCommende(commendeDto, user);
+        CommandeDto savedCommandeDto = commandeService.saveCommende(commandeDto, user);
 
         // Assert
-        assertNotNull(savedCommendeDto);
-        assertEquals(1L, savedCommendeDto.getGateauId());
-        assertEquals(1L, savedCommendeDto.getIdCommende());
+        assertNotNull(savedCommandeDto);
+        assertEquals(1L, savedCommandeDto.getGateauId());
+        assertEquals(1L, savedCommandeDto.getIdCommende());
         verify(gateauRepository, times(1)).findById(1L);
-        verify(commendeRepository, times(1)).save(any(Commende.class));
+        verify(commendeRepository, times(1)).save(any(Commande.class));
     }
 
     @Test

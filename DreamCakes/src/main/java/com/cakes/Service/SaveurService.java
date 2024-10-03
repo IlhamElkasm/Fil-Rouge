@@ -29,11 +29,6 @@ public class SaveurService implements ISaveurService {
         return saveurMapper.toDTO(savedSaveur);
     }
 
-    @Override
-    public Optional<SaveurDto> getSaveurById(Long id) {
-        Optional<Saveur> saveur = saveurRepository.findById(id);
-        return saveur.map(saveurMapper::toDTO);
-    }
 
     @Override
     public List<SaveurDto> getAllSaveurs() {
@@ -42,18 +37,33 @@ public class SaveurService implements ISaveurService {
     }
 
     @Override
-    public SaveurDto updateSaveur(Long id, SaveurDto saveurDto) {
-        Optional<Saveur> existingSaveur = saveurRepository.findById(id);
+    public Optional<SaveurDto> getSaveurById(Long id) {
+        Optional<Saveur> saveur = saveurRepository.findById(id);
+        return saveur.map(saveurMapper::toDTO);
+    }
 
-        if (existingSaveur.isPresent()) {
-            Saveur saveur = existingSaveur.get();
-            saveurMapper.toEntity(saveurDto); // Update existing entity with DTO data
-            Saveur updatedSaveur = saveurRepository.save(saveur);
+    @Override
+    public SaveurDto updateSaveur(Long id, SaveurDto saveurDto) {
+        Optional<Saveur> existingSaveurOpt = saveurRepository.findById(id);
+
+        if (existingSaveurOpt.isPresent()) {
+            Saveur existingSaveur = existingSaveurOpt.get();
+
+            // Update fields manually from the DTO to the entity
+            existingSaveur.setName(saveurDto.getName());
+            existingSaveur.setPrice(saveurDto.getPrice());
+            existingSaveur.setImage(saveurDto.getImage());
+
+            // Save the updated entity
+            Saveur updatedSaveur = saveurRepository.save(existingSaveur);
+
+            // Return the updated Saveur as a DTO
             return saveurMapper.toDTO(updatedSaveur);
         }
 
-        return null; // or throw an exception if not found
+        return null; // or you can throw an exception, such as ResourceNotFoundException
     }
+
 
     @Override
     public void deleteSaveur(Long id) {
