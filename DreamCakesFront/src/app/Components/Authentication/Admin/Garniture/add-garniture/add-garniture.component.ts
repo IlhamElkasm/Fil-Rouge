@@ -41,7 +41,7 @@ export class AddGarnitureComponent {
       this.garnitureService.saveGarniture(garnitureData).subscribe(
         data => {
           console.log('Automobiliste created successfully:', data);
-          this.router.navigateByUrl("/dashboard/AllG")
+          this.router.navigateByUrl("/dashboard/Allgarniture")
         }
       )
 

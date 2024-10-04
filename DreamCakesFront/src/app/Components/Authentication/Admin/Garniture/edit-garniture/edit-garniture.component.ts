@@ -71,7 +71,7 @@ export class EditGarnitureComponent implements OnInit {
     this.garnitureService.updateGarniture(this.id, this.garniture).subscribe(
       () => {
         alert(`Forme avec ID ${this.id} mise à jour avec succès.`);
-        this.router.navigate(['/dashboard/AllG']); // Rediriger après la mise à jour
+        this.router.navigate(['/dashboard/Allgarniture']); // Rediriger après la mise à jour
       },
       error => {
         console.error('Erreur lors de la mise à jour de la forme', error);

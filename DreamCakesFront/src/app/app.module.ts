@@ -36,6 +36,7 @@ import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/ed
 import { AddGarnitureComponent } from './Components/Authentication/Admin/Garniture/add-garniture/add-garniture.component';
 import { AllGarnitureComponent } from './Components/Authentication/Admin/Garniture/all-garniture/all-garniture.component';
 import { EditGarnitureComponent } from './Components/Authentication/Admin/Garniture/edit-garniture/edit-garniture.component';
+ import { RegisterComponent } from './Components/Authentication/User/register/register.component';
 
 
 
@@ -60,6 +61,7 @@ import { EditGarnitureComponent } from './Components/Authentication/Admin/Garnit
     AddGarnitureComponent,
     AllGarnitureComponent,
     EditGarnitureComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
