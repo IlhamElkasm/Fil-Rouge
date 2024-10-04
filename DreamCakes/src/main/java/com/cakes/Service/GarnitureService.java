@@ -28,11 +28,6 @@ public class GarnitureService implements IGarnitureService {
         return garnitureMapper.toDTO(savedGarniture);
     }
 
-    @Override
-    public Optional<GarnitureDto> getGarnitureById(Long id) {
-        Optional<Garniture> garniture = garnitureRepository.findById(id);
-        return garniture.map(garnitureMapper::toDTO);
-    }
 
     @Override
     public List<GarnitureDto> getAllGarnitures() {
@@ -41,16 +36,37 @@ public class GarnitureService implements IGarnitureService {
     }
 
     @Override
+    public Optional<GarnitureDto> getGarnitureById(Long id) {
+        Optional<Garniture> garniture = garnitureRepository.findById(id);
+        return garniture.map(garnitureMapper::toDTO);
+    }
+
+    @Override
     public GarnitureDto updateGarniture(GarnitureDto garnitureDto, Long id) {
         Optional<Garniture> existingGarniture = garnitureRepository.findById(id);
         if (existingGarniture.isPresent()) {
             Garniture garniture = existingGarniture.get();
-            garnitureMapper.toEntity(garnitureDto); // Updating the existing entity with DTO data
+
+            // Do not update the ID, as it is the primary key and should not be changed
+            garniture.setImage(garnitureDto.getImage());
+            garniture.setName(garnitureDto.getName());
+            garniture.setPrice(garnitureDto.getPrice());
+
             Garniture updatedGarniture = garnitureRepository.save(garniture);
-            return garnitureMapper.toDTO(updatedGarniture);
+
+            // Manually converting back to DTO
+            GarnitureDto updatedGarnitureDto = new GarnitureDto();
+            updatedGarnitureDto.setIdTopping(updatedGarniture.getIdTopping()); // Keep the original ID
+            updatedGarnitureDto.setImage(updatedGarniture.getImage());
+            updatedGarnitureDto.setName(updatedGarniture.getName());
+            updatedGarnitureDto.setPrice(updatedGarniture.getPrice());
+
+            return updatedGarnitureDto;
         }
         return null;
     }
+
+
 
     @Override
     public void deleteGarniture(Long id) {
