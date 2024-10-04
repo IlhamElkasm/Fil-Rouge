@@ -17,7 +17,7 @@ export class GarnitureService {
   }
 
   getGarnitureById(id: number): Observable<GarnitureDto> {
-    return this.http.get<GarnitureDto>(`${this.apiUrl}/${id}`);
+    return this.http.get<GarnitureDto>(`${this.apiUrl}/get/${id}`);
   }
 
   getAllGarnitures(): Observable<GarnitureDto[]> {
@@ -25,7 +25,7 @@ export class GarnitureService {
   }
 
   updateGarniture(id: number, garniture: GarnitureDto): Observable<GarnitureDto> {
-    return this.http.put<GarnitureDto>(`${this.apiUrl}/${id}`, garniture);
+    return this.http.put<GarnitureDto>(`${this.apiUrl}/edit/${id}`, garniture);
   }
 
   deleteGarniture(id: number): Observable<void> {

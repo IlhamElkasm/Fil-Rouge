@@ -1,28 +1,97 @@
-/* formes-list.component.css */
+/* Container for the entire garniture list */
 .garniture-container {
+    /* padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; /* Limit max width for large screens */
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  */
+    /* border-radius: 8px; */ 
     padding: 20px;
-   
+  }
+  
+  /* Add Button */
+  .add-button-container {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+  
+  .add-garniture-button {
+    color: #EB810A;
+    background-color: white;
+    border: 1px solid #EB810A;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-garniture-button mat-icon {
+    margin-right: 5px;
   }
   table {
-    width: 50%;
-    margin-left: 50px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px; /* Spacing between rows */
   }
   
-  .garniture-card {
-    margin: 10px;
+  th, td {
+    text-align: left;
+    padding: 5px 5px;
   }
   
-
-  .garniture-list-container{
-    padding-bottom: 20px;
-    margin-left: 50px;
-
+  th {
+    background-color: #F4F4F4;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
   }
-/* show.component.css */
-.garnitures-image {
-    max-width: 100px; /* ou toute autre valeur selon votre préférence */
+  
+  td {
+    background-color: #ffffff;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  tr.mat-row {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Image styling */
+  .garnitures-image {
+    width: 70px;
     height: auto;
-    border-radius: 4px; /* Pour arrondir les coins si nécessaire */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
   }
   
+  /* Action icons */
+  .icon-actions {
+    display: flex;
+    gap: 10px; /* Spacing between icons */
+  }
+  
+  .icon-actions a {
+    color: #EB810A;
+    font-size: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .garniture-container {
+      padding: 10px;
+      margin-top: 10px;
+    }
+  
+    table {
+      width: 100%;
+      margin-top: 15px;
+      font-size: 12px;
+    }
+  
+    .garnitures-image {
+      width: 50px;
+    }
+  }
   

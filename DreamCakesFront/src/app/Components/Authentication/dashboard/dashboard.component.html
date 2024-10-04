@@ -1,6 +1,10 @@
 <div id="wrapper" class="d-flex">
   <app-sidebar [userRole]="userRole" class="sidebar"></app-sidebar>
-  <div class="container-fluid"> 
-    <router-outlet></router-outlet>
-  </div>
+  <!-- ===== content starts  ===== -->
+
+  <div id="content" class="col-md-10 split">
+      <div class="content-wrapper">
+          <router-outlet></router-outlet>
+      </div>
+    </div>
 </div>

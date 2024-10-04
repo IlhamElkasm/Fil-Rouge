@@ -1,1 +1,21 @@
-<p>edit-garniture works!</p>
+<h2>Edit Garniture</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="garniture.name" name="name" required>
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="garniture.price" name="price" required>
+  </div>
+
+  <div>
+    <label for="image">Image:</label>
+    <input type="file" (change)="onFileSelected($event)">
+    <img *ngIf="garniture.image" [src]="garniture.image" alt="Image de la garniture" class="preview-image">
+  </div>
+
+  <button type="submit">Update Forme</button>
+</form>

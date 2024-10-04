@@ -11,6 +11,7 @@ import { AllSaveurComponent } from './Components/Authentication/Admin/Saveur/all
 import { EditSaveurComponent } from './Components/Authentication/Admin/Saveur/edit-saveur/edit-saveur.component';
 import { AllGarnitureComponent } from './Components/Authentication/Admin/Garniture/all-garniture/all-garniture.component';
 import { AddGarnitureComponent } from './Components/Authentication/Admin/Garniture/add-garniture/add-garniture.component';
+import { EditGarnitureComponent } from './Components/Authentication/Admin/Garniture/edit-garniture/edit-garniture.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
      //Garniture
      { path: 'AllG', component: AllGarnitureComponent},
      {path: 'AddGarnitur', component: AddGarnitureComponent},
-     { path: 'update/:id', component: EditSaveurComponent },
+     { path: 'updateG/:id', component: EditGarnitureComponent },
     { path: 'logout', component: LoginComponent },
   ]},
   { path: '**', redirectTo: '/login' },
