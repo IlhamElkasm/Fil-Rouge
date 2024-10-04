@@ -38,22 +38,21 @@ services:
     ports:
       - '8089:8089'
     depends_on:
-      - mysql-db
+      - mysqldb  # Change this to match your MySQL service name
     networks:
       - cake-network
 
-  mysqldb:
+  mysqldb:  # Ensure this matches the name used in `depends_on`
     image: "mysql:latest"
     environment:
-        - MYSQL_ROOT_PASSWORD=admin
-        - MYSQL_DATABASE=dreamcakes
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=dreamcakes
     ports:
       - "3307:3306"
     volumes:
       - mysql-db:/var/lib/mysql
     networks:
       - cake-network
-
 
 volumes:
   mysql-db:

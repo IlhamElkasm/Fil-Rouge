@@ -58,12 +58,13 @@ pipeline {
            }
        }
 
-        stage('Deploy with Docker Compose') {
-            steps {
-                dir('DreamCakes')  {
-                    bat 'docker-compose up -d'
-                }
-            }
-        }
+       stage('Deploy with Docker Compose') {
+           steps {
+               dir('DreamCakes')  {
+                   bat 'docker-compose up -d'
+               }
+           }
+       }
+
     }
 }
