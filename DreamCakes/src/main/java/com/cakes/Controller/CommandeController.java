@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/auth/User/commende")
+@RequestMapping("/api/v1/User/commande")
 public class CommandeController {
 
     @Autowired

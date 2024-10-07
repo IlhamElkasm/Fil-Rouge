@@ -1,5 +1,6 @@
 package com.cakes.Model;
 
+import com.cakes.DTO.GateauDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,22 +12,15 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Gateau {
-
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idGateau;
-    private String message;
-    private Double prixtotal;
+    private Long cartId;
 
-    @ManyToOne
-    private Forme forme;
+    @OneToOne
+    private  Gateau gateau;
 
-    @ManyToOne
-    private Saveur saveur;
-
-    @ManyToOne
-    private Garniture garnitures;
-
+    @OneToOne
+    private User user;
 }
 

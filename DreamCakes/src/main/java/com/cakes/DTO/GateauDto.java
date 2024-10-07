@@ -10,12 +10,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GateauDto {
-    private String nom;
+    private  Long idGateau;
     private String message;
-    private Long shapeId;
-    private Long flavorId;
-    private Long colorId;
-    private Long toppingId;
+    private Double prixtotal;
+    private Long idShape;
+    private Long idFlavor;
+    private Long idTopping;
 
     // Getters and Setters
 }
