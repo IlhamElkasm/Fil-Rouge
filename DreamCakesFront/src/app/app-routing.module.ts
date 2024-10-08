@@ -13,22 +13,30 @@ import { AllGarnitureComponent } from './Components/Authentication/Admin/Garnitu
 import { AddGarnitureComponent } from './Components/Authentication/Admin/Garniture/add-garniture/add-garniture.component';
 import { EditGarnitureComponent } from './Components/Authentication/Admin/Garniture/edit-garniture/edit-garniture.component';
 import { RegisterComponent } from './Components/Authentication/User/register/register.component';
+import { FormComponent } from './Components/Authentication/User/Showform/form.component';
+import { ShowsaveurComponent } from './Components/Authentication/User/showsaveur/showsaveur.component';
+import { ShowgarnitureComponent } from './Components/Authentication/User/showgarniture/showgarniture.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
+
+
     { path: '', component: MainComponent },
     //Form
+    { path: 'allform', component: FormComponent },
     { path: 'show', component: ShowComponent},
     {path: 'AddForm', component: AddFormComponent},
     { path: 'edit/:id', component: EditComponent },
 
     //Saveur
+    { path: 'allsaveur', component: ShowsaveurComponent },
     { path: 'All', component: AllSaveurComponent},
     {path: 'AddSaveur', component: AddSaveurComponent},
     { path: 'update/:id', component: EditSaveurComponent },
 
      //Garniture
+     { path: 'allgarniture', component: ShowgarnitureComponent },
      { path: 'Allgarniture', component: AllGarnitureComponent},
      {path: 'AddGarnitur', component: AddGarnitureComponent},
      { path: 'updateG/:id', component: EditGarnitureComponent },

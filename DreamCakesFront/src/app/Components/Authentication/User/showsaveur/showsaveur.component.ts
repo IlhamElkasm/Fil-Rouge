@@ -8,19 +8,8 @@ import { SaveurService } from 'src/app/Service/saveur.service';
   styleUrls: ['./showsaveur.component.css']
 })
 export class ShowsaveurComponent implements OnInit {
-
-  @Output() saveurSelected = new EventEmitter<SaveurDto>();
-  gateauDto: any = {}; // Initialize gateauDto here
-
-  // ...rest of the code
-
-  selectSaveur(saveur: SaveurDto): void {
-    this.gateauDto.flavorId = saveur.idFlavor;
-    console.log('Selected Saveur:', saveur.name);
-  }
-
-  saveurs: SaveurDto[] = [];
-  selectedSaveur: SaveurDto | null = null;
+  @Output() selectSaveur = new EventEmitter<number>();
+  saveurs: SaveurDto[] = []; // Store the list of SaveurDto
 
   constructor(private saveurService: SaveurService) { }
 
@@ -40,54 +29,7 @@ export class ShowsaveurComponent implements OnInit {
     );
   }
 
-  // Get Saveur by ID
-  getSaveur(id: number): void {
-    this.saveurService.getSaveurById(id).subscribe(
-      (data: SaveurDto) => {
-        this.selectedSaveur = data;
-      },
-      error => {
-        console.error('Error loading saveur:', error);
-      }
-    );
-  }
-
-  // Create a new Saveur
-  createSaveur(newSaveur: SaveurDto): void {
-    this.saveurService.createSaveur(newSaveur).subscribe(
-      (data: SaveurDto) => {
-        this.saveurs.push(data);
-      },
-      error => {
-        console.error('Error creating saveur:', error);
-      }
-    );
-  }
-
-  // Update an existing Saveur
-  updateSaveur(id: number, updatedSaveur: SaveurDto): void {
-    this.saveurService.updateSaveur(id, updatedSaveur).subscribe(
-      (data: SaveurDto) => {
-        const index = this.saveurs.findIndex(s => s.idFlavor === id);
-        if (index !== -1) {
-          this.saveurs[index] = data;
-        }
-      },
-      error => {
-        console.error('Error updating saveur:', error);
-      }
-    );
-  }
-
-  // Delete a Saveur
-  deleteSaveur(id: number): void {
-    this.saveurService.deleteSaveur(id).subscribe(
-      () => {
-        this.saveurs = this.saveurs.filter(s => s.idFlavor !== id);
-      },
-      error => {
-        console.error('Error deleting saveur:', error);
-      }
-    );
+  onSelectSaveur(id: number): void {
+    this.selectSaveur.emit(id);
   }
 }

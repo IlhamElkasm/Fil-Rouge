@@ -8,16 +8,10 @@ import { FormService } from 'src/app/Service/form.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
-  @Output() formSelected = new EventEmitter<FormDto>();
+  @Output() selectForme = new EventEmitter<number>();  // Emit the selected forme ID
 
   formes: FormDto[] = []; // Assume this array is populated elsewhere
-  gateauDto: any = {}; // Initialize as an empty object
 
-  selectForm(forme: FormDto): void {
-    this.gateauDto.idShape = forme.idShape;
-    console.log('Selected Form:', forme.name);
-  }
 
   constructor(private formeService: FormService) { }
 
@@ -31,24 +25,8 @@ export class FormComponent implements OnInit {
     });
   }
 
-  getFormeById(id: number): void {
-    this.formeService.getFormeById(id).subscribe(form => {
-      console.log(form);
-    });
-  }
-
-  updateForme(id: number, formDto: FormDto): void {
-    this.formeService.updateForme(id, formDto).subscribe(updatedForm => {
-      const index = this.formes.findIndex(f => f.idShape === id);
-      if (index !== -1) {
-        this.formes[index] = updatedForm;
-      }
-    });
-  }
-
-  deleteForme(id: number): void {
-    this.formeService.deleteForme(id).subscribe(() => {
-      this.formes = this.formes.filter(f => f.idShape !== id);
-    });
-  }
+    // Method to emit selected forme
+    onSelectForme(id: number): void {
+      this.selectForme.emit(id);  // Emit the forme ID to the parent
+    }
 }
