@@ -1,0 +1,14 @@
+<div *ngIf="gateau">
+    <h2>Review your Cake</h2>
+    <p><strong>Form:</strong> {{ gateau.formName }}</p>
+    <img [src]="gateau.formImage" alt="Form Image">
+  
+    <p><strong>Saveur:</strong> {{ gateau.saveurName }}</p>
+    <img [src]="gateau.saveurImage" alt="Saveur Image">
+  
+    <p><strong>Garniture:</strong> {{ gateau.garnitureName }}</p>
+    <img [src]="gateau.garnitureImage" alt="Garniture Image">
+  
+    <p><strong>Total Price:</strong> {{ gateau.prixtotal }}</p>
+  </div>
+  

@@ -16,6 +16,7 @@ import { RegisterComponent } from './Components/Authentication/User/register/reg
 import { FormComponent } from './Components/Authentication/User/Showform/form.component';
 import { ShowsaveurComponent } from './Components/Authentication/User/showsaveur/showsaveur.component';
 import { ShowgarnitureComponent } from './Components/Authentication/User/showgarniture/showgarniture.component';
+import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -40,6 +41,8 @@ const routes: Routes = [
      { path: 'Allgarniture', component: AllGarnitureComponent},
      {path: 'AddGarnitur', component: AddGarnitureComponent},
      { path: 'updateG/:id', component: EditGarnitureComponent },
+
+     { path : 'Cakereview', component: CakePreviewComponent},
 
     { path: 'logout', component: LoginComponent },
   ]},

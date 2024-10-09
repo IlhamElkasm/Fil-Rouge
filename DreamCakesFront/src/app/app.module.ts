@@ -38,6 +38,7 @@ import { AllGarnitureComponent } from './Components/Authentication/Admin/Garnitu
 import { EditGarnitureComponent } from './Components/Authentication/Admin/Garniture/edit-garniture/edit-garniture.component';
  import { RegisterComponent } from './Components/Authentication/User/register/register.component';
 import { AddGateauComponent } from './Components/Authentication/User/add-gateau/add-gateau.component';
+import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
 
 
 
@@ -64,6 +65,7 @@ import { AddGateauComponent } from './Components/Authentication/User/add-gateau/
     EditGarnitureComponent,
     RegisterComponent,
     AddGateauComponent,
+    CakePreviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,5 +27,6 @@ export class ShowgarnitureComponent  implements OnInit {
   onSelectGarniture(id: number): void {
     this.selectGarniture.emit(id);
   }
+  
 }
 

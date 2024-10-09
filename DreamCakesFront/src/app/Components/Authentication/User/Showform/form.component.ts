@@ -29,4 +29,5 @@ export class FormComponent implements OnInit {
     onSelectForme(id: number): void {
       this.selectForme.emit(id);  // Emit the forme ID to the parent
     }
+    
 }
