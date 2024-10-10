@@ -3,18 +3,24 @@
         <div class="inside-wrapper container">
             <div class="col-md-12">
                 <!-- Tabs -->
-                <ul class="nav nav-tabs">
+                <!-- <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#A">Size Cakes</a></li>
                     <li><a data-toggle="tab" href="#B">Saveur Cakes</a></li>
                     <li><a data-toggle="tab" href="#C">Garniture Cakes</a></li>
-                </ul>
+                </ul> -->
                 
-                <div class="tabbable">
+                <!-- <div class="tabbable"> -->
                     <div class="tab-content">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#A">Size Cakes</a></li>
+                            <li><a data-toggle="tab" href="#B">Saveur Cakes</a></li>
+                            <li><a data-toggle="tab" href="#C">Garniture Cakes</a></li>
+                        </ul>
                         <!-- Form Selection -->
                         <div class="tab-pane active fade in" id="A">
                             <app-form (selectForme)="onFormeSelected($event)"></app-form>
                         </div>
+                    
                         <!-- Saveur Selection -->
                         <div class="tab-pane fade" id="B">
                             <app-showsaveur (selectSaveur)="onSaveurSelected($event)"></app-showsaveur>
@@ -24,12 +30,11 @@
                             <app-showgarniture (selectGarniture)="onGarnitureSelected($event)"></app-showgarniture>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
 
         <button class="btn btn-primary" (click)="createGateau()">Create Gateau</button>
-        <button class="btn btn-secondary" (click)="createCommande()" [disabled]="!isGateauCreated">Create Commande</button>
     
     </section>
 </div>

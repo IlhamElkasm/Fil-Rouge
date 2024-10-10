@@ -1,14 +1,17 @@
-<div *ngIf="gateau">
-    <h2>Review your Cake</h2>
-    <p><strong>Form:</strong> {{ gateau.formName }}</p>
-    <img [src]="gateau.formImage" alt="Form Image">
-  
-    <p><strong>Saveur:</strong> {{ gateau.saveurName }}</p>
-    <img [src]="gateau.saveurImage" alt="Saveur Image">
-  
-    <p><strong>Garniture:</strong> {{ gateau.garnitureName }}</p>
-    <img [src]="gateau.garnitureImage" alt="Garniture Image">
-  
-    <p><strong>Total Price:</strong> {{ gateau.prixtotal }}</p>
+<div class="cake-preview">
+    <h2>Détails du Gâteau</h2>
+
+    <div *ngIf="gateauDetails">
+        <h2>Détails du Gâteau</h2>
+        <p>Form: <img src="{{gateauDetails.forme?.image}}" width="100px" ></p> 
+        <p>Saveur: <img src="{{gateauDetails.saveur?.image}}" width="100px" ></p> 
+        <p>Garniture: <img src="{{gateauDetails.garnitures?.image}}" width="100px" ></p> 
+        <p>Total: {{ gateauDetails.prixtotal }}</p>
+        <p>Message: {{ gateauDetails.message }}</p>
+    </div>
+    
+    
+    
+    <button (click)="createCommande()">Commander</button>
   </div>
   

@@ -14,4 +14,9 @@ export class CommandeService {
   createCommande(commandeDto: CommandeDto): Observable<CommandeDto> {
     return this.http.post<CommandeDto>(this.baseUrl, commandeDto);
   }
+
+    // Appelle l'API pour obtenir toutes les commandes de l'utilisateur authentifié
+    getAllCommendes(): Observable<CommandeDto[]> {
+      return this.http.get<CommandeDto[]>(`${this.baseUrl}`);
+    }
 }

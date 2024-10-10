@@ -17,10 +17,13 @@ import { FormComponent } from './Components/Authentication/User/Showform/form.co
 import { ShowsaveurComponent } from './Components/Authentication/User/showsaveur/showsaveur.component';
 import { ShowgarnitureComponent } from './Components/Authentication/User/showgarniture/showgarniture.component';
 import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
+import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
+
+    { path : 'commande' , component : CommandeListComponent},
 
 
     { path: '', component: MainComponent },

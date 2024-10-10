@@ -30,4 +30,7 @@ export class FormComponent implements OnInit {
       this.selectForme.emit(id);  // Emit the forme ID to the parent
     }
     
-}
+
+
+
+  }    

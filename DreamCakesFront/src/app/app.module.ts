@@ -39,6 +39,8 @@ import { EditGarnitureComponent } from './Components/Authentication/Admin/Garnit
  import { RegisterComponent } from './Components/Authentication/User/register/register.component';
 import { AddGateauComponent } from './Components/Authentication/User/add-gateau/add-gateau.component';
 import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
+import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -66,12 +68,14 @@ import { CakePreviewComponent } from './Components/Authentication/User/cake-prev
     RegisterComponent,
     AddGateauComponent,
     CakePreviewComponent,
-  ],
+    CommandeListComponent,
+  ], 
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
     ReactiveFormsModule,
   //++++++++++++++Angular Materail
     MatToolbarModule,
@@ -92,6 +96,7 @@ import { CakePreviewComponent } from './Components/Authentication/User/cake-prev
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }
     ],
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // dialog component khas tji
 })
 export class AppModule { }

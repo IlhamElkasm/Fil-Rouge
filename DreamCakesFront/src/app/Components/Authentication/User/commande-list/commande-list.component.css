@@ -1,0 +1,59 @@
+.list-commande {
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #FFF5EE;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #FF69B4;
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cupcake-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    color: #FF69B4;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .commande-item {
+    background-color: #FFF;
+    border: 2px solid #FFB6C1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .commande-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+  }
+  
+  .commande-item p {
+    margin: 8px 0;
+    color: #333;
+  }
+  
+  .commande-item strong {
+    color: #FF69B4;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #FF69B4;
+    font-style: italic;
+  }
