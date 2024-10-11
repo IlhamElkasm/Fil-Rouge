@@ -19,13 +19,13 @@ public class Gateau {
     private String message;
     private Double prixtotal;
 
-    @ManyToOne
+    @OneToOne
     private Forme forme;
 
-    @ManyToOne
+    @OneToOne
     private Saveur saveur;
 
-    @ManyToOne
+    @OneToOne
     private Garniture garnitures;
 
 }

@@ -42,10 +42,12 @@ public class CommandeService implements ICommandeService {
         return convertToDto(savedCommande);
     }
 
-    public List<CommandeDto> getAllCommendes() {
-        List<Commande> commandes = commendeRepository.findAll();
+    public List<CommandeDto> getAllCommendes(Long userId) {
+        List<Commande> commandes = commendeRepository.findByUserId(userId); // Utiliser une méthode qui récupère les commandes par ID utilisateur
         return commandes.stream().map(this::convertToDto).collect(Collectors.toList());
     }
+
+
 
     public CommandeDto getCommendeById(Long id) {
         if (id == null) {

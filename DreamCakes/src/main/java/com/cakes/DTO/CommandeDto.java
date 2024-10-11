@@ -14,6 +14,5 @@ public class CommandeDto {
     private Long idCommende;
     private LocalDate dateCommende;
     private Long gateauId; // Reference to Gateau
-//    private Long livraisonId; // Reference to Livraison
 
 }

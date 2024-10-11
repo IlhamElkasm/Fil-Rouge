@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/User/commande")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CommandeController {
 
     @Autowired
@@ -36,8 +37,8 @@ public class CommandeController {
 
 
     @GetMapping
-    public ResponseEntity<List<CommandeDto>> getAllCommendes() {
-        List<CommandeDto> commendes = commandeService.getAllCommendes();
+    public ResponseEntity<List<CommandeDto>> getAllCommendes(@AuthenticationPrincipal User user) {
+        List<CommandeDto> commendes = commandeService.getAllCommendes(user.getId());
         return ResponseEntity.ok(commendes);
     }
 

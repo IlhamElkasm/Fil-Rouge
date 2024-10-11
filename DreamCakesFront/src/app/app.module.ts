@@ -41,6 +41,7 @@ import { AddGateauComponent } from './Components/Authentication/User/add-gateau/
 import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
 import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewportScroller } from '@angular/common';
 
 
 
@@ -86,7 +87,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
    
   ],
   providers: [

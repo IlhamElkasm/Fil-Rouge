@@ -1,4 +1,7 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
   selector: 'app-main',
@@ -7,6 +10,18 @@ import { Component, Input } from '@angular/core';
 })
 export class MainComponent {
   
-  @Input() userRole!: string | null;
+  userRole!: string | null;
 
+
+  constructor(private authService: AuthenticationService, private router: Router, private viewportScroller: ViewportScroller) {}
+
+  ngOnInit() {
+    this.userRole = localStorage.getItem("role");
+  }
+
+  onScroll(section: string) {
+    console.log(section);
+    
+    this.viewportScroller.scrollToAnchor(section)
+  }
 }

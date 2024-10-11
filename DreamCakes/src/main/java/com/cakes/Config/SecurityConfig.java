@@ -29,10 +29,12 @@ public class SecurityConfig {
                                 .requestMatchers("/api/v1/User/**").hasAuthority("USER")
 //                                .requestMatchers("/api/v1/auth/**").permitAll()
                                 .requestMatchers("/api/v1/Admin/**").hasAuthority("ADMIN")
-                                .requestMatchers("/api/v1/show", "/api/v1/Saveur/all", "/api/v1/garniture/all").hasAnyAuthority("ADMIN", "USER")
-                                .requestMatchers("/api/v1/get/{id}", "/update/{id}" ,"/{id}").hasAuthority("ADMIN")
-                                .requestMatchers("/api/v1/Saveur/get/{id}", "/edit/{id}", "/{id}").hasAuthority("ADMIN")
-                                .requestMatchers("/api/v1/garniture/get/{id}", "/edit/{id}", "/{id}").hasAuthority("ADMIN")
+                                .requestMatchers("/api/v1/show","/api/v1/get/{id}",
+                                        "/api/v1/Saveur/all", "/api/v1/Saveur/get/{id}","/api/v1/garniture/all"
+                                        ,"/api/v1/garniture/get/{id}").hasAnyAuthority("ADMIN", "USER")
+                                .requestMatchers( "/update/{id}" ,"/{id}").hasAuthority("ADMIN")
+                                .requestMatchers( "/edit/{id}", "/{id}").hasAuthority("ADMIN")
+                                .requestMatchers( "/edit/{id}", "/{id}").hasAuthority("ADMIN")
                                 .anyRequest()
                                 .authenticated()
                 )

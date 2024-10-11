@@ -8,7 +8,7 @@ import java.util.List;
 public interface ICommandeService {
 
     CommandeDto saveCommende(CommandeDto commandeDto, User user);
-    List<CommandeDto> getAllCommendes();
+    List<CommandeDto> getAllCommendes(Long userId);
     CommandeDto getCommendeById(Long id);
     void deleteCommendeById(Long id);
 }

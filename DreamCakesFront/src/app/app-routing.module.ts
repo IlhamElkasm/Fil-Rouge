@@ -18,6 +18,7 @@ import { ShowsaveurComponent } from './Components/Authentication/User/showsaveur
 import { ShowgarnitureComponent } from './Components/Authentication/User/showgarniture/showgarniture.component';
 import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
 import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
+import { AddGateauComponent } from './Components/Authentication/User/add-gateau/add-gateau.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
      { path: 'updateG/:id', component: EditGarnitureComponent },
 
      { path : 'Cakereview', component: CakePreviewComponent},
+     { path : 'cake', component: AddGateauComponent},
 
     { path: 'logout', component: LoginComponent },
   ]},
