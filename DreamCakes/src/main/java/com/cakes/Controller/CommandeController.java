@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/User/commande")
+@RequestMapping("/api/v1/commande")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class CommandeController {
 
@@ -23,7 +23,7 @@ public class CommandeController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<CommandeDto> createCommende(@RequestBody CommandeDto commandeDto, @AuthenticationPrincipal User user) {
 
             User utilisateurVerifie = userRepository
@@ -36,9 +36,15 @@ public class CommandeController {
     }
 
 
-    @GetMapping
+    @GetMapping("/show")
     public ResponseEntity<List<CommandeDto>> getAllCommendes(@AuthenticationPrincipal User user) {
         List<CommandeDto> commendes = commandeService.getAllCommendes(user.getId());
+        return ResponseEntity.ok(commendes);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<CommandeDto>> getAllCommende() {
+        List<CommandeDto> commendes = commandeService.getAllCommende();
         return ResponseEntity.ok(commendes);
     }
 

@@ -35,6 +35,8 @@ public class SecurityConfig {
                                 .requestMatchers( "/update/{id}" ,"/{id}").hasAuthority("ADMIN")
                                 .requestMatchers( "/edit/{id}", "/{id}").hasAuthority("ADMIN")
                                 .requestMatchers( "/edit/{id}", "/{id}").hasAuthority("ADMIN")
+                                .requestMatchers( "/api/v1/commande/add", "/show").hasAuthority("USER")
+                                .requestMatchers( "/api/v1/commande/all").hasAuthority("ADMIN")
                                 .anyRequest()
                                 .authenticated()
                 )

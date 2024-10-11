@@ -47,6 +47,11 @@ public class CommandeService implements ICommandeService {
         return commandes.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    public List<CommandeDto> getAllCommende() {
+        List<Commande> commandes = commendeRepository.findAll();
+        return commandes.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
 
 
     public CommandeDto getCommendeById(Long id) {
