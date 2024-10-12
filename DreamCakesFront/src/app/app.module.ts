@@ -42,6 +42,9 @@ import { CakePreviewComponent } from './Components/Authentication/User/cake-prev
 import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ViewportScroller } from '@angular/common';
+import { AproposComponent } from './Components/apropos/apropos.component';
+import { SliderComponent } from './Components/slider/slider.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 
 
@@ -70,6 +73,9 @@ import { ViewportScroller } from '@angular/common';
     AddGateauComponent,
     CakePreviewComponent,
     CommandeListComponent,
+    AproposComponent,
+    SliderComponent,
+    MenuComponent,
   ], 
   imports: [
     BrowserModule,

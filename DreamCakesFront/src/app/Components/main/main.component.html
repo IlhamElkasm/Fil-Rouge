@@ -1,14 +1,3 @@
-<div class="header-wrapper"
-     data-ls="offsetyin:150; durationin:700; delayin:200; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400;">
-    <div class="header-text">
-        <h1><span>Welcome to</span> <br />Dream & Cake</h1>
-        <div class="hidden-small">
-            <a class="btn btn-primary" href="#cake_section">One cake</a>
-        </div>
-    </div>
-    
-    <img src="assets/img/slider/slide1.jpg" alt="" class="header-image">
-</div>
 
     
         <!-- /slider -->
@@ -23,19 +12,16 @@
                         <h2 class="text-center-sm">Made with love</h2>
                         <img class="img-responsive img-rounded pull-right-lg col-md-4 center-block"
                             src="assets/img/services/services-home.jpg" alt="">
-                        <p class="lead res-margin">High Quality services since 2001, qui fabulas definitiones at, ei
-                            nibh offendit mel. Eius comprehensam ex est.Pri ei laudem invenire, has ex regione sapientem
+                        <p class="lead res-margin">Prêt à préparer le gâteau de vos rêves!
                         </p>
-                        <p>Lorem ipsum dolor sit amet, per no malorum aliquam utroque, vim legere eleifend an, malis
-                            delicatissimi vel te. Pro fuisset splendide vulputate an, quo eu eripuit nominati. Sit enim
-                            eius laoreet te, qui fabulas definitiones at, ei nibh offendit mel. Eius comprehensam ex
-                            est.Pri ei laudem invenire, has ex regione sapientem.</p>
+                        <p>Bienvenue sur  <b>Dream & Cake</b>, votre destination idéale pour créer le gâteau de vos rêves ! Nous vous offrons une expérience unique où vous pouvez personnaliser votre gâteau selon vos goûts et préférences. Choisissez la taille, la saveur et la garniture qui vous conviennent, et laissez-nous réaliser votre création parfaite. Si vous préférez, parcourez notre sélection de gâteaux prêts à commander, et passez votre commande en quelques clics. Que ce soit pour une fête, un événement spécial, ou tout simplement pour satisfaire votre envie de sucré, Dream & Cake est là pour vous offrir des créations gourmandes, faites avec amour et soin.</p>
                     </div>
                 </div>
             </section>
 
-           
+            <div *ngIf="userRole === 'USER'">
              <app-add-gateau id="cake_section"></app-add-gateau>
+            </div>
        
         
 

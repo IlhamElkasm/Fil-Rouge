@@ -19,11 +19,13 @@ import { ShowgarnitureComponent } from './Components/Authentication/User/showgar
 import { CakePreviewComponent } from './Components/Authentication/User/cake-preview/cake-preview.component';
 import { CommandeListComponent } from './Components/Authentication/User/commande-list/commande-list.component';
 import { AddGateauComponent } from './Components/Authentication/User/add-gateau/add-gateau.component';
+import { AproposComponent } from './Components/apropos/apropos.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
-
+    { path: "Àpropos", component: AproposComponent },
+    { path: "Menu", component: MenuComponent },
     { path : 'commande' , component : CommandeListComponent},
 
 
@@ -51,8 +53,9 @@ const routes: Routes = [
 
     { path: 'logout', component: LoginComponent },
   ]},
+  { path: "login", component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/dashboard' },
 ]
 
     
