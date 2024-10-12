@@ -64,7 +64,7 @@ export class CakePreviewComponent implements OnInit {
         gateauId: this.gateauId
       };
       this.commandeService.createCommande(commandeDto).subscribe(response => {
-        console.log("Commande créée !");
+        alert("Commande créée !");
       });
     } else {
       console.error('GateauId est null');

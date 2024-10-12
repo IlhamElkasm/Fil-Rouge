@@ -1,17 +1,44 @@
-<div class="cake-preview">
-    <h2>Détails du Gâteau</h2>
-
-    <div *ngIf="gateauDetails">
-        <h2>Détails du Gâteau</h2>
-        <p>Form: <img src="{{gateauDetails.forme?.image}}" width="100px" ></p> 
-        <p>Saveur: <img src="{{gateauDetails.saveur?.image}}" width="100px" ></p> 
-        <p>Garniture: <img src="{{gateauDetails.garnitures?.image}}" width="100px" ></p> 
-        <p>Total: {{ gateauDetails.prixtotal }}</p>
-        <p>Message: {{ gateauDetails.message }}</p>
+<div class="container mt-4">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4" style="color: #ff69b4; font-size: 2rem;">Détails du Gâteau</h2>
+        <div *ngIf="gateauDetails">
+          <div class="row mb-3">
+            <div class="col-4">
+              <strong>Forme:</strong>
+            </div>
+            <div class="col-8">
+              <img [src]="gateauDetails.forme?.image" alt="Forme du gâteau" class="img-fluid rounded" style="max-width: 100px;">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-4">
+              <strong>Saveur:</strong>
+            </div>
+            <div class="col-8">
+              <img [src]="gateauDetails.saveur?.image" alt="Saveur du gâteau" class="img-fluid rounded" style="max-width: 100px;">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-4">
+              <strong>Garniture:</strong>
+            </div>
+            <div class="col-8">
+              <img [src]="gateauDetails.garnitures?.image" alt="Garniture du gâteau" class="img-fluid rounded" style="max-width: 100px;">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <strong>Total:</strong> <span class="text-primary">{{ gateauDetails.prixtotal }} DH</span>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <strong>Message:</strong> {{ gateauDetails.message }}
+            </div>
+          </div>
+        </div>
+        <button (click)="createCommande()" class="btn btn-primary btn-lg btn-block mt-4" style="background-color: #ff69b4; border-color: #ff69b4;">Commander</button>
+      </div>
     </div>
-    
-    
-    
-    <button (click)="createCommande()">Commander</button>
   </div>
-  
