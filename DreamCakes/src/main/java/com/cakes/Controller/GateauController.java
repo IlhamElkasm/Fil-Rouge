@@ -31,7 +31,7 @@ public class GateauController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/cake/{id}")
     public Optional<Gateau> getGateauById(@PathVariable Long id) {
         return gateauService.getGateauById(id);
     }
