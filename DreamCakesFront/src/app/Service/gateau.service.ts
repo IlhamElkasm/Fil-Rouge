@@ -19,6 +19,6 @@ export class GateauService {
 
     // Méthode pour récupérer les détails d'un gâteau par son ID
     getGateauById(id: number): Observable<cake> {
-      return this.http.get<cake>(`${this.baseUrl}/${id}`);
+      return this.http.get<cake>(`${this.baseUrl}/cake/${id}`);
     }
 }

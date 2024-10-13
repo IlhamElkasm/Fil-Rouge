@@ -45,7 +45,7 @@ import { ViewportScroller } from '@angular/common';
 import { AproposComponent } from './Components/apropos/apropos.component';
 import { SliderComponent } from './Components/slider/slider.component';
 import { MenuComponent } from './Components/menu/menu.component';
-
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -90,10 +90,11 @@ import { MenuComponent } from './Components/menu/menu.component';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
+    BrowserAnimationsModule, // Ajoute ceci
+    ToastrModule.forRoot(), // Ajoute ceci
    
   ],
   providers: [
