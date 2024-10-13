@@ -21,12 +21,14 @@ import { CommandeListComponent } from './Components/Authentication/User/commande
 import { AddGateauComponent } from './Components/Authentication/User/add-gateau/add-gateau.component';
 import { AproposComponent } from './Components/apropos/apropos.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { CommandeAllComponent } from './Components/Authentication/Admin/commande-all/commande-all.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: "Àpropos", component: AproposComponent },
     { path: "Menu", component: MenuComponent },
     { path : 'commande' , component : CommandeListComponent},
+    { path : 'commandeList' , component : CommandeAllComponent},
 
 
     { path: '', component: MainComponent },

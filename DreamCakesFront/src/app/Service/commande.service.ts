@@ -19,4 +19,8 @@ export class CommandeService {
     getAllCommendes(): Observable<CommandeDto[]> {
       return this.http.get<CommandeDto[]>(`${this.baseUrl}/show`);
     }
+
+    getAllCommandes(): Observable<CommandeDto[]> {
+      return this.http.get<CommandeDto[]>(`${this.baseUrl}/all`);
+    }
 }

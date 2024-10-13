@@ -46,8 +46,7 @@ import { AproposComponent } from './Components/apropos/apropos.component';
 import { SliderComponent } from './Components/slider/slider.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { ToastrModule } from 'ngx-toastr';
-
-
+import { CommandeAllComponent } from './Components/Authentication/Admin/commande-all/commande-all.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +75,7 @@ import { ToastrModule } from 'ngx-toastr';
     AproposComponent,
     SliderComponent,
     MenuComponent,
+    CommandeAllComponent,
   ], 
   imports: [
     BrowserModule,

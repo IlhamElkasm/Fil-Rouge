@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { cake } from 'src/app/Model/cake';
 import { GateauDto } from 'src/app/Model/GateauDto';
 import { CommandeService } from 'src/app/Service/commande.service';
@@ -19,7 +19,8 @@ export class CakePreviewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private commandeService: CommandeService,
-    private gateauService: GateauService
+    private gateauService: GateauService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +66,7 @@ export class CakePreviewComponent implements OnInit {
       };
       this.commandeService.createCommande(commandeDto).subscribe(response => {
         alert("Commande créée !");
+        this.router.navigateByUrl("/dashboard/commande")
       });
     } else {
       console.error('GateauId est null');
